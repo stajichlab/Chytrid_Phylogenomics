@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --nodes 1 --ntasks 16 --mem 64gb -p batch -J zygoAFTF1 --out logs/AAFTF_filter.%a.%A.log --time 36:00:00
+#SBATCH --nodes 1 --ntasks 16 --mem 128gb -p batch -J zygoAFTF1 --out logs/AAFTF_filter.%a.%A.log --time 36:00:00
 
 hostname
-MEM=512
+MEM=128
 
 CPU=$SLURM_CPUS_ON_NODE
 N=${SLURM_ARRAY_TASK_ID}
@@ -29,7 +29,7 @@ WORKDIR=working_AAFTF
 mkdir -p $WORKDIR
 
 TMPTRIM=/scratch/${USER}_trim_$$
-sed -n ${N}p $SAMPLEFILE | while read STRAIN GENUS SPECIES ASMTYPE
+tail -n +2 $SAMPLEFILE | sed -n ${N}p | while read STRAIN GENUS SPECIES ASMTYPE
 do
 	BASE=${GENUS}_${SPECIES}_${STRAIN}
 
@@ -58,7 +58,8 @@ do
 		AAFTF filter -c $CPU --memory $MEM -o $TMPTRIM/${BASE} --left $LEFTTRIM --right $RIGHTTRIM --aligner bbduk
 		echo "$LEFT $RIGHT"
 		if [ -f $TMPTRIM/$(basename $LEFT) ]; then
-		    rsync -a $TMPTRIM/$(basename $LEFT) $TMPTRIM/$(basename $RIGHT) $WORKDIR
+		    rsync -av $TMPTRIM/$(basename $LEFT) $LEFT
+		    rsync -av $TMPTRIM/$(basename $RIGHT) $RIGHT
 		    rm -rf $TMPTRIM
 		else
 		    echo "Error in AAFTF filter"
