@@ -58,28 +58,32 @@ do
 	echo "running assemble for $BASE"
 	if [[ $ASMTOOL == "dipspades" ]]; then
 	    module switch SPAdes/3.11.1
-	    if [ -d $WORKDIR/dipspades_$BASE ]; then
-		dipspades.py --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE --continue
-	    else
-	    	dipspades.py -1 $LEFT -2 $RIGHT --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE
+	    if [ ! -f $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta ]; then
+		if [ -d $WORKDIR/dipspades_$BASE ]; then
+		    dipspades.py --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE --continue
+		else
+	    	    dipspades.py -1 $LEFT -2 $RIGHT --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE
+		fi
 	    fi
-	    if [ -f $WORKDIR/dipspades_$BASE/dipspades/scaffolds.fasta ]; then
-		rsync -a $WORKDIR/dipspades_$BASE/dipspades/scaffolds.fasta $ASMFILE
+	    if [ -f $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta ]; then
 		rsync -a $WORKDIR/dipspades_$BASE/spades/scaffolds.fasta $ASM/${BASE}.spades.fasta
-		rsync -a $WORKDIR/dipspades_$BASE/dipspades/scaffolds.fasta $ASM/${BASE}.dipspades.fasta
+		rsync -a $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus.fasta
+		rsync -a $WORKDIR/dipspades_$BASE/dipspades/paired_consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus_paired.fasta
+		rsync -a $WORKDIR/dipspades_$BASE/dipspades/unpaired_consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus_unpaired.fasta
 		AAFTF assess -i $ASM/${BASE}.spades.fasta -r $ASM/${BASE}.spades.stats.txt
-		AAFTF assess -i $ASM/${BASE}.dipspades.fasta -r $ASM/${BASE}.dipspades.stats.txt
+		AAFTF assess -i $ASM/${BASE}.dipspades_consensus.fasta -r $ASM/${BASE}.dipspades.stats.txt
+		rsync -a $ASM/${BASE}.dipspades_consensus.fasta $ASMFILE
 		# rm -rf $WORKDIR/dipspades_${BASE}
 		if [[ $ASSEMBLER == "NA" ]]; then
 		    echo "fix input file to specify dipspades or spades instead of NA"
 		    echo "compare spades assembly success for the two files for $ASM/${BASE}.*.stats.txt"
 		    exit
 		fi
-	    fi
+	    fi	
 	else
 	    AAFTF assemble -c $CPU --left $LEFT --right $RIGHT  \
 		-o $ASMFILE -w $WORKDIR/spades_$BASE --mem $MEM
-	    
+	    AAFTF assess -i $ASMFILE -r $ASM/${BASE}.spades.stats.txt
 	    if [ -s $ASMFILE ]; then
 		rm -rf $WORKDIR/spades_${BASE}
 	    else
