@@ -29,7 +29,7 @@ WORKDIR=working_AAFTF
 mkdir -p $WORKDIR
 
 TMPTRIM=/scratch/${USER}_trim_$$
-tail -n +2 $SAMPLEFILE | sed -n ${N}p | while read STRAIN GENUS SPECIES ASMTYPE
+tail -n +2 $SAMPLEFILE | sed -n ${N}p | while read STRAIN GENUS SPECIES ASMTYPE PHYLUM
 do
 	BASE=${GENUS}_${SPECIES}_${STRAIN}
 
