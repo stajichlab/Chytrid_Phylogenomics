@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Paraphysoderma_sedebokerense_JEL0847.spades.fasta
+   CONTIG COUNT  =  22336
+   TOTAL LENGTH  =  20755428
+            MIN  =  78
+            MAX  =  265708
+         MEDIAN  =  155
+           MEAN  =  929.24
+            L50  =  250
+            N50  =  20971
+            L90  =  6684
+            N90  =  155

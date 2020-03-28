@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Irineochytrium_annulatum_JEL0729.spades.fasta
+   CONTIG COUNT  =  24158
+   TOTAL LENGTH  =  43744159
+            MIN  =  78
+            MAX  =  678072
+         MEDIAN  =  155
+           MEAN  =  1810.75
+            L50  =  490
+            N50  =  20126
+            L90  =  2916
+            N90  =  1709

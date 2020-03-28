@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Paranamyces_uniporus_JEL0695.spades.fasta
+   CONTIG COUNT  =  59880
+   TOTAL LENGTH  =  63453114
+            MIN  =  78
+            MAX  =  454270
+         MEDIAN  =  150
+           MEAN  =  1059.67
+            L50  =  491
+            N50  =  25239
+            L90  =  12135
+            N90  =  310

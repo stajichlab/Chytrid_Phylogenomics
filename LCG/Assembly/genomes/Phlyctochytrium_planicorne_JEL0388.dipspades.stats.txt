@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Phlyctochytrium_planicorne_JEL0388.dipspades_consensus.fasta
+   CONTIG COUNT  =  1033
+   TOTAL LENGTH  =  30084371
+            MIN  =  80
+            MAX  =  327127
+         MEDIAN  =  11061
+           MEAN  =  29123.30
+            L50  =  123
+            N50  =  79884
+            L90  =  423
+            N90  =  20467

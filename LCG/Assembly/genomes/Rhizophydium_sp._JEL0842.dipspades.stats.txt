@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Rhizophydium_sp._JEL0842.dipspades_consensus.fasta
+   CONTIG COUNT  =  1208
+   TOTAL LENGTH  =  26251670
+            MIN  =  78
+            MAX  =  274865
+         MEDIAN  =  4059
+           MEAN  =  21731.51
+            L50  =  130
+            N50  =  62867
+            L90  =  415
+            N90  =  18856

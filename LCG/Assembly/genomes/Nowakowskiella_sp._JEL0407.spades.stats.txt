@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Nowakowskiella_sp._JEL0407.spades.fasta
+   CONTIG COUNT  =  74523
+   TOTAL LENGTH  =  41244587
+            MIN  =  78
+            MAX  =  185861
+         MEDIAN  =  188
+           MEAN  =  553.45
+            L50  =  3171
+            N50  =  1816
+            L90  =  43972
+            N90  =  157

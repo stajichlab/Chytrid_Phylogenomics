@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Lobulomyces_sp._JEL0476.dipspades_consensus.fasta
+   CONTIG COUNT  =  5168
+   TOTAL LENGTH  =  24332593
+            MIN  =  85
+            MAX  =  115310
+         MEDIAN  =  1582
+           MEAN  =  4708.32
+            L50  =  408
+            N50  =  15102
+            L90  =  2068
+            N90  =  2273

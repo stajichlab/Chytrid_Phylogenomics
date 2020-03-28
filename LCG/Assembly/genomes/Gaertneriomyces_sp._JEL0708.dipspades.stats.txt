@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Gaertneriomyces_sp._JEL0708.dipspades_consensus.fasta
+   CONTIG COUNT  =  28875
+   TOTAL LENGTH  =  43577750
+            MIN  =  78
+            MAX  =  1260815
+         MEDIAN  =  516
+           MEAN  =  1509.19
+            L50  =  603
+            N50  =  3482
+            L90  =  15150
+            N90  =  481

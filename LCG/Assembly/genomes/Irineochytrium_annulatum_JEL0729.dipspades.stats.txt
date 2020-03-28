@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Irineochytrium_annulatum_JEL0729.dipspades_consensus.fasta
+   CONTIG COUNT  =  4818
+   TOTAL LENGTH  =  39006381
+            MIN  =  78
+            MAX  =  678072
+         MEDIAN  =  2938
+           MEAN  =  8095.97
+            L50  =  425
+            N50  =  21075
+            L90  =  1925
+            N90  =  4539

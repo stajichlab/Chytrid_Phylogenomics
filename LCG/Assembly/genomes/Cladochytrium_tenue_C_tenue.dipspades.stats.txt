@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Cladochytrium_tenue_C_tenue.dipspades_consensus.fasta
+   CONTIG COUNT  =  6167
+   TOTAL LENGTH  =  24221652
+            MIN  =  80
+            MAX  =  156488
+         MEDIAN  =  556
+           MEAN  =  3927.62
+            L50  =  460
+            N50  =  13998
+            L90  =  1992
+            N90  =  2579
