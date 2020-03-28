@@ -17,7 +17,7 @@ fi
 module load AAFTF
 
 OUTDIR=input
-SAMPLEFILE=ploidy_target_assembly.csv
+SAMPLEFILE=ploidy_target_assembly.tsv
 ASM=genomes
 
 mkdir -p $ASM
