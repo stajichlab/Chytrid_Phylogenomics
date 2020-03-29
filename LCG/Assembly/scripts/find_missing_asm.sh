@@ -1,5 +1,5 @@
 N=1
-SAMPLEFILE=ploidy_target_assembly.csv
+SAMPLEFILE=ploidy_target_assembly.tsv
 tail -n +2 $SAMPLEFILE | while read STRAIN GENUS SPECIES ASSEMBLER PHYLUM
 do
     BASE=${GENUS}_${SPECIES}_${STRAIN}
