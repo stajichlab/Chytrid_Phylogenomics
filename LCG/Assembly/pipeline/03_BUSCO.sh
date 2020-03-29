@@ -43,8 +43,8 @@ do
 	    exit
 	else
 	    pushd $OUTFOLDER
-	    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $BASE -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES
-#	    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $NAME -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES --long
+#	    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $BASE -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES
+	    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $BASE -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES --long
 	    popd
 	fi	
 done
