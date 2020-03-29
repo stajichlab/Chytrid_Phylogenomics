@@ -1,6 +1,7 @@
 #!/usr/bin/bash
+#SBATCH --nodes 1 --ntasks 24 --mem 24G -p short -J readCount
+#SBATCH --out logs/bbcount.%a.log --time 2:00:00
 
-#SBATCH --nodes 1 --ntasks 24 --mem 24G -p short -J zygoCount --out logs/bbcount.%a.log --time 2:00:00
 module load BBMap
 hostname
 MEM=24
@@ -40,4 +41,4 @@ do
 	    popd
 	    rm -rf N$N.$$.bbmap
 	fi
-fi
+done
