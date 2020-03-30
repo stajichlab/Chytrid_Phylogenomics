@@ -17,8 +17,8 @@ opendir(DIR,$dir) || die $!;
 my $first = 1;
 foreach my $file ( readdir(DIR) ) {
     next unless ( $file =~ /(\S+)(\.fasta)?\.stats.txt$/);
-    my $stem = $1;
-    $stem =~ s/\.sorted//;
+    my $stem = $1; 
+
     warn("$file ($dir)\n");
     open(my $fh => "$dir/$file") || die "cannot open $dir/$file: $!";
     while(<$fh>) {
@@ -47,6 +47,16 @@ foreach my $file ( readdir(DIR) ) {
     my $busco_file = File::Spec->catfile("BUSCO",sprintf("run_%s",$stem),
 					 sprintf("short_summary_%s.txt",$stem));
 
+    if ( $stem =~ /\.dipspades/ ) {
+	$busco_file = File::Spec->catfile("BUSCO",sprintf("run_%s_consensus",$stem),
+					     sprintf("short_summary_%s_consensus.txt",$stem));
+    } 
+#elsif ( $is_sorted ) {
+#	$busco_file = File::Spec->catfile("BUSCO",sprintf("run_%s.sorted",$stem)#,
+#					  sprintf("short_summary_%s.txt",$stem));
+#
+#    }
+
     if ( -f $busco_file ) {
 
 	open(my $fh => $busco_file) || die $!;
@@ -65,8 +75,12 @@ foreach my $file ( readdir(DIR) ) {
 	warn("Cannot find $busco_file");
     }
 
+    my $fstem = $stem;
+    
+    my $is_sorted = ( $fstem =~ s/\.sorted// ) ? 1 : 0;
+    
     my $sumstatfile = File::Spec->catfile($read_map_stat,
-				      sprintf("%s.bbmap_summary.txt",$stem));
+				      sprintf("%s.bbmap_summary.txt",$fstem));
     if ( -f $sumstatfile ) {
 	open(my $fh => $sumstatfile) || die "Cannot open $sumstatfile: $!";
 	my $read_dir = 0;

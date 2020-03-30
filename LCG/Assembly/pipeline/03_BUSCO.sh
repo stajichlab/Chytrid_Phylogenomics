@@ -25,7 +25,7 @@ if [ -z ${SLURM_ARRAY_JOB_ID} ]; then
 	SLURM_ARRAY_JOB_ID=$$
 fi
 GENOMEFOLDER=genomes
-EXT=sorted.fasta
+ENDING=fasta
 LINEAGE=/srv/projects/db/BUSCO/v9/fungi_odb9
 OUTFOLDER=BUSCO
 TEMP=/scratch/${SLURM_ARRAY_JOB_ID}_${N}
@@ -35,17 +35,36 @@ SEED_SPECIES="homolaphlyctis_polyrhiza"
 tail -n +2 $SAMPLEFILE | sed -n ${N}p | while read STRAIN GENUS SPECIES ASMTYPE PHYLUM
 do
 	BASE=${GENUS}_${SPECIES}_${STRAIN}
-	GENOMEFILE=$(realpath $GENOMEFOLDER/${BASE}.${EXT})
 	LINEAGE=$(realpath $LINEAGE)
-	
-	if [ -d "$OUTFOLDER/run_${NAME}" ];  then
-	    echo "Already have run $NAME in folder busco - do you need to delete it to rerun?"
-	    exit
-	else
-	    pushd $OUTFOLDER
-#	    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $BASE -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES
-	    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $BASE -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES --long
-	    popd
-	fi	
+	if [ -d $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE ]; then
+	    SEED_SPECIES=BUSCO_$BASE
+	fi
+	for EXT in .sorted .sorted_shovill .spades .dipspades_consensus
+	do
+	    NAME=${BASE}${EXT}
+	    GENOMEFILE=$(realpath $GENOMEFOLDER/$NAME.${ENDING})
+	    if [ ! -s $GENOMEFILE ]; then
+		echo "Skipping $NAME does not exist"
+		continue
+	    elif [ -d "$OUTFOLDER/run_${NAME}" ];  then
+		echo "Already have run $BASE in folder busco - do you need to delete it to rerun?"
+	    else
+		pushd $OUTFOLDER
+		if [[ $SEED_SPECIES == "BUSCO_$BASE" ]]; then
+		    # already have run optimization
+		    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $NAME \
+			-m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES
+		else
+		    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $NAME -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES --long
+		    rsync -av run_${NAME}/augustus_output/retraining_parameters/ $AUGUTUS_CONFIG_PATH/species/BUSCO_$BASE/
+		    for d in $(ls $AUGUTUS_CONFIG_PATH/species/BUSCO_$BASE/*.cfg);
+		    do 
+			m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).cfg/_$2.cfg/; s/\.sorted//g'); 
+			mv $d $m
+		    done
+		fi
+		popd
+	    fi	
+	done
 done
 rm -rf $TEMP
