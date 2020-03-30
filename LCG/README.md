@@ -1,4 +1,9 @@
 # Assembly and Annotation
 
 Annotation
- - AAFTF + dipSPAdes
+ - funannotate
+
+Assembly
+ - AAFTF + SPAdes 
+ - AAFTF + dipSPAdes 
+ - AAFTF + shovill
