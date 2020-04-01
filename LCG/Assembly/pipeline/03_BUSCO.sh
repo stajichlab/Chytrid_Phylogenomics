@@ -62,6 +62,10 @@ do
 			m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).cfg/_$2.cfg/; s/\.sorted//g'); 
 			mv $d $m
 		    done
+		    for d in $(ls $AUGUTUS_CONFIG_PATH/species/BUSCO_$BASE/*.txt);
+		    do	
+			 m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).txt/_$2.txt/; s/\.sorted//g');
+		    done
 		fi
 		popd
 	    fi	

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --nodes 1 --ntasks 16 --mem 128gb -p batch -J zygoAFTF1 --out logs/AAFTF_filter.%a.%A.log --time 36:00:00
+#SBATCH --nodes 1 --ntasks 16 --mem 128gb -p batch -J FilterAAFTF --out logs/AAFTF_filter.%a.%A.log --time 36:00:00
 
 hostname
 MEM=128

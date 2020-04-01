@@ -1,11 +1,11 @@
 Assembly statistics for: genomes/Rhizophydium_sp._JEL0866.spades.fasta
-   CONTIG COUNT  =  19104
-   TOTAL LENGTH  =  20365540
+   CONTIG COUNT  =  35301
+   TOTAL LENGTH  =  22538442
             MIN  =  78
-            MAX  =  296070
+            MAX  =  183054
          MEDIAN  =  155
-           MEAN  =  1066.04
-            L50  =  206
-            N50  =  25477
-            L90  =  4257
-            N90  =  168
+           MEAN  =  638.46
+            L50  =  980
+            N50  =  4235
+            L90  =  19113
+            N90  =  155
