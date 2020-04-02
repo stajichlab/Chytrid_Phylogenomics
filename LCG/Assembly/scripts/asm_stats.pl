@@ -77,8 +77,8 @@ foreach my $file ( readdir(DIR) ) {
 
     my $fstem = $stem;
     
-    my $is_sorted = ( $fstem =~ s/\.sorted// ) ? 1 : 0;
-    
+    my $is_sorted = ( $fstem =~ s/\.sorted_shovill/.shovill/ || $fstem =~ s/\.sorted// ) ? 1 : 0;
+    warn("$fstem\n");
     my $sumstatfile = File::Spec->catfile($read_map_stat,
 				      sprintf("%s.bbmap_summary.txt",$fstem));
     if ( -f $sumstatfile ) {
@@ -92,16 +92,18 @@ foreach my $file ( readdir(DIR) ) {
 	    } elsif( $read_dir && /^mapped:\s+(\S+)\s+(\d+)\s+(\S+)\s+(\d+)/) {
 		$base_count += $4;
 		$stats{$stem}->{'Mapped_reads'} += $2;
-	    }  elsif( /^Reads:\s+(\S+)/) {
-		$stats{$stem}->{'Reads'} = $1;
+	    }  elsif( /^Reads(\s+Used)?:\s+(\S+)/) {
+		$stats{$stem}->{'Reads'} = $2;
 	    }
 	    
 	}
+	$stats{$stem}->{'Pct_reads_mapped'} = sprintf("%.1f",100*$stats{$stem}->{'Mapped_reads'}/$stats{$stem}->{'Reads'});
 	$stats{$stem}->{'Average_Coverage'} =
 	    sprintf("%.1f",$base_count / $stats{$stem}->{'TOTAL LENGTH'});
 	if( $first )  {
 	    push @header, ('Reads',
 			   'Mapped_reads',			   
+			   'Pct_reads_mapped',
 			   'Average_Coverage');
 	}
     }
