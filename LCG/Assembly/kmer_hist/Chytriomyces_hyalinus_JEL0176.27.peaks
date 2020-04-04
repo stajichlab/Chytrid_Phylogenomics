@@ -1,0 +1,27 @@
+#k	27
+#unique_kmers	71723389
+#error_kmers	36739098
+#genomic_kmers	34984291
+#main_peak	9
+#genome_size_in_peaks	44113378
+#genome_size	55169525
+#haploid_genome_size	55169525
+#fold_coverage	9
+#haploid_fold_coverage	9
+#ploidy	1
+#percent_repeat_in_peaks	22.550
+#percent_repeat	33.780
+#start	center	stop	max	volume
+4	9	23	4313261	33827377
+84	88	90	1473	8314
+90	91	126	1426	36319
+126	127	131	727	3475
+131	136	168	717	20059
+168	279	299	1845	142366
+299	300	488	1602	110208
+488	531	532	89	2947
+532	588	589	99	4358
+589	595	603	110	1323
+603	605	606	119	327
+606	607	1517	114	8922
+86579	95466	99813	1	26

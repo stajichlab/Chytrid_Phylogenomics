@@ -1,0 +1,27 @@
+#k	31
+#unique_kmers	67682770
+#error_kmers	52018040
+#genomic_kmers	15664730
+#main_peak	42
+#genome_size_in_peaks	30906233
+#genome_size	32158482
+#haploid_genome_size	16079241
+#fold_coverage	22
+#haploid_fold_coverage	42
+#ploidy	2
+#het_rate	0.00343
+#percent_repeat_in_peaks	4.971
+#percent_repeat	44.202
+#start	center	stop	max	volume
+9	22	23	188876	1711583
+23	42	105	581424	13787808
+193	197	198	334	1569
+198	200	235	318	8592
+235	291	351	300	23373
+353	354	362	134	982
+362	368	369	118	786
+369	453	454	347	17010
+454	456	461	343	2209
+461	462	692	324	18725
+692	911	912	50	3682
+912	914	2231	41	5878

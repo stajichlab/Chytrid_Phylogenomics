@@ -1,0 +1,26 @@
+#k	31
+#unique_kmers	98171524
+#error_kmers	44242227
+#genomic_kmers	53929297
+#main_peak	7
+#genome_size_in_peaks	62027270
+#genome_size	75918074
+#haploid_genome_size	75918074
+#fold_coverage	7
+#haploid_fold_coverage	7
+#ploidy	1
+#percent_repeat_in_peaks	14.571
+#percent_repeat	25.663
+#start	center	stop	max	volume
+3	7	18	7056684	52531375
+50	51	56	5192	28959
+56	68	69	4512	56484
+69	70	95	4204	78049
+95	116	136	2414	86434
+136	180	320	2289	176441
+320	321	325	136	600
+325	328	329	130	407
+329	392	396	214	10563
+396	399	400	180	678
+400	401	473	201	9585
+473	479	1196	112	9820

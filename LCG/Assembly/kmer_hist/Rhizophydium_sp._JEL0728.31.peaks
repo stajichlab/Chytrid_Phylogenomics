@@ -1,0 +1,27 @@
+#k	31
+#unique_kmers	67988957
+#error_kmers	47563673
+#genomic_kmers	20425284
+#main_peak	41
+#genome_size_in_peaks	33622833
+#genome_size	34823309
+#haploid_genome_size	17411654
+#fold_coverage	21
+#haploid_fold_coverage	41
+#ploidy	2
+#het_rate	0.01750
+#percent_repeat_in_peaks	7.195
+#percent_repeat	36.772
+#start	center	stop	max	volume
+8	21	29	753344	9445555
+29	41	103	500271	10802434
+115	125	183	1765	67281
+183	199	206	477	9816
+206	207	219	432	4983
+219	242	243	419	8647
+243	245	246	428	1122
+248	250	446	420	21415
+446	605	608	264	16296
+608	610	611	210	624
+611	612	1261	272	15233
+1261	1904	2725	26	7955
