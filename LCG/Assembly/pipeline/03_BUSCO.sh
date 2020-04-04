@@ -31,7 +31,7 @@ OUTFOLDER=BUSCO
 TEMP=/scratch/${SLURM_ARRAY_JOB_ID}_${N}
 mkdir -p $TEMP $OUTFOLDER
 SAMPLEFILE=ploidy_target_assembly.tsv
-SEED_SPECIES="homolaphlyctis_polyrhiza"
+SEED_SPECIES="batrachochytrium_dendrobatidis_G2"
 tail -n +2 $SAMPLEFILE | sed -n ${N}p | while read STRAIN GENUS SPECIES ASMTYPE PHYLUM
 do
 	BASE=${GENUS}_${SPECIES}_${STRAIN}
@@ -56,16 +56,16 @@ do
 			-m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES
 		else
 		    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $NAME -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES --long
-		    rsync -av run_${NAME}/augustus_output/retraining_parameters/ $AUGUTUS_CONFIG_PATH/species/BUSCO_$BASE/
-		    for d in $(ls $AUGUTUS_CONFIG_PATH/species/BUSCO_$BASE/*.cfg);
-		    do 
-			m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).cfg/_$2.cfg/; s/\.sorted//g'); 
-			mv $d $m
-		    done
-		    for d in $(ls $AUGUTUS_CONFIG_PATH/species/BUSCO_$BASE/*.txt);
-		    do	
-			 m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).txt/_$2.txt/; s/\.sorted//g');
-		    done
+#		    rsync -av run_${NAME}/augustus_output/retraining_parameters/ $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE/
+#		    for d in $(ls $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE/*.cfg);
+#		    do 
+#			m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).cfg/_$2.cfg/; s/\.sorted//g'); 
+#			mv $d $m
+#		    done
+#		    for d in $(ls $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE/*.txt);
+#		    do	
+#			 m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).txt/_$2.txt/; s/\.sorted//g');
+#		    done
 		fi
 		popd
 	    fi	
