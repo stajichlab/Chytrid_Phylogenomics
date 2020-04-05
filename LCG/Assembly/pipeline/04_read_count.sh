@@ -68,7 +68,7 @@ do
                 rm -rf N$N.$$.bbmap
 	    fi
 	fi
-	SORTED=$(realpath $ASM/${BASE}.dispades_consensus.fasta)
+	SORTED=$(realpath $ASM/${BASE}.dipspades_consensus.fasta)
 	if [ ! -s $SORTED ]; then
 	    echo "No $SORTED dipspades assembly"
 	else
@@ -78,6 +78,21 @@ do
                 bbmap.sh -Xmx${MEM}g ref=$SORTED in=$LEFT in2=$RIGHT \
                     covstats=../$OUTDIR/${BASE}.dipspades.bbmap_covstats.txt \
                     statsfile=../$OUTDIR/${BASE}.dipspades.bbmap_summary.txt
+                popd
+                rm -rf N$N.$$.bbmap
+	    fi
+	fi
+
+	SORTED=$(realpath $ASM/${BASE}.spades.fasta)
+	if [ ! -s $SORTED ]; then
+	    echo "No $SORTED spades assembly"
+	else
+	    if [[ ! -s $OUTDIR/${BASE}.spades.bbmap_covstats.txt || $SORTED -nt $OUTDIR/${BASE}.spades.bbmap_covstats.txt ]]; then
+		mkdir -p N$N.$$.bbmap
+                pushd N$N.$$.bbmap
+                bbmap.sh -Xmx${MEM}g ref=$SORTED in=$LEFT in2=$RIGHT \
+                    covstats=../$OUTDIR/${BASE}.spades.bbmap_covstats.txt \
+                    statsfile=../$OUTDIR/${BASE}.spades.bbmap_summary.txt
                 popd
                 rm -rf N$N.$$.bbmap
 	    fi
