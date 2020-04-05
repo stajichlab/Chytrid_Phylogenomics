@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Dinochytrium_kinnereticum_KLL_TL_06062013.sorted_shovill.fasta
+   CONTIG COUNT  =  2027
+   TOTAL LENGTH  =  32634335
+            MIN  =  1006
+            MAX  =  266223
+         MEDIAN  =  6410
+           MEAN  =  16099.82
+            L50  =  252
+            N50  =  39558
+            L90  =  984
+            N90  =  6751

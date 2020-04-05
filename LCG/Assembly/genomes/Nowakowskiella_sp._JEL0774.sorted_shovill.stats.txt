@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Nowakowskiella_sp._JEL0774.sorted_shovill.fasta
+   CONTIG COUNT  =  4735
+   TOTAL LENGTH  =  38389745
+            MIN  =  1000
+            MAX  =  521033
+         MEDIAN  =  2600
+           MEAN  =  8107.65
+            L50  =  257
+            N50  =  31757
+            L90  =  2348
+            N90  =  2623

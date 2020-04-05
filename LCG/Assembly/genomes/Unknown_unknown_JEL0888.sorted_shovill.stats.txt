@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Unknown_unknown_JEL0888.sorted_shovill.fasta
+   CONTIG COUNT  =  15273
+   TOTAL LENGTH  =  53665208
+            MIN  =  973
+            MAX  =  67601
+         MEDIAN  =  2483
+           MEAN  =  3513.73
+            L50  =  3346
+            N50  =  4653
+            L90  =  11095
+            N90  =  1621

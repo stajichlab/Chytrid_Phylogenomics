@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Kappamyces_sp._JEL0680.sorted_shovill.fasta
+   CONTIG COUNT  =  732
+   TOTAL LENGTH  =  14965360
+            MIN  =  1000
+            MAX  =  222230
+         MEDIAN  =  9232
+           MEAN  =  20444.48
+            L50  =  93
+            N50  =  45516
+            L90  =  344
+            N90  =  10199

@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Gaertneriomyces_sp._JEL0708.sorted_shovill.fasta
+   CONTIG COUNT  =  182
+   TOTAL LENGTH  =  20410369
+            MIN  =  1002
+            MAX  =  1189556
+         MEDIAN  =  18857
+           MEAN  =  112144.88
+            L50  =  16
+            N50  =  410578
+            L90  =  58
+            N90  =  105626

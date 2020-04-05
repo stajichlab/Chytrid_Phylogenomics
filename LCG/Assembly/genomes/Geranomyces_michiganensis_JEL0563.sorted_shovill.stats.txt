@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Geranomyces_michiganensis_JEL0563.sorted_shovill.fasta
+   CONTIG COUNT  =  404
+   TOTAL LENGTH  =  23754344
+            MIN  =  1008
+            MAX  =  520897
+         MEDIAN  =  18919
+           MEAN  =  58797.88
+            L50  =  52
+            N50  =  154605
+            L90  =  157
+            N90  =  41415

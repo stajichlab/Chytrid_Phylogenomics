@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Rhizophlyctis_rosea_JEL0318.sorted_shovill.fasta
+   CONTIG COUNT  =  3868
+   TOTAL LENGTH  =  38842517
+            MIN  =  1001
+            MAX  =  145080
+         MEDIAN  =  5893
+           MEAN  =  10042.02
+            L50  =  603
+            N50  =  18043
+            L90  =  2234
+            N90  =  4497

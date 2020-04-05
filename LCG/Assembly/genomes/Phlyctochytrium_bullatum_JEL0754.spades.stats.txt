@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Phlyctochytrium_bullatum_JEL0754.asm_raw.fasta
+   CONTIG COUNT  =  125569
+   TOTAL LENGTH  =  55964338
+            MIN  =  77
+            MAX  =  172241
+         MEDIAN  =  101
+           MEAN  =  445.69
+            L50  =  669
+            N50  =  19739
+            L90  =  60141
+            N90  =  104

@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Entophlyctis_sp._JEL0112.sorted.fasta
+   CONTIG COUNT  =  1559
+   TOTAL LENGTH  =  26963685
+            MIN  =  1000
+            MAX  =  257584
+         MEDIAN  =  5677
+           MEAN  =  17295.50
+            L50  =  154
+            N50  =  48027
+            L90  =  649
+            N90  =  8974

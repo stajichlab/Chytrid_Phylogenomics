@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Siphonaria_sp._JEL0065.asm_raw.fasta
+   CONTIG COUNT  =  93929
+   TOTAL LENGTH  =  56702431
+            MIN  =  71
+            MAX  =  185732
+         MEDIAN  =  96
+           MEAN  =  603.67
+            L50  =  1058
+            N50  =  13761
+            L90  =  30635
+            N90  =  120

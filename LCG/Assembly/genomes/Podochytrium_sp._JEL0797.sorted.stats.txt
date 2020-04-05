@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Podochytrium_sp._JEL0797.sorted.fasta
+   CONTIG COUNT  =  6033
+   TOTAL LENGTH  =  34921234
+            MIN  =  837
+            MAX  =  111292
+         MEDIAN  =  2503
+           MEAN  =  5788.37
+            L50  =  673
+            N50  =  12781
+            L90  =  3595
+            N90  =  2054

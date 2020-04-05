@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Geranomyces_variabilis_JEL0379.sorted_shovill.fasta
+   CONTIG COUNT  =  490
+   TOTAL LENGTH  =  23539282
+            MIN  =  757
+            MAX  =  425936
+         MEDIAN  =  20469
+           MEAN  =  48039.35
+            L50  =  62
+            N50  =  121250
+            L90  =  209
+            N90  =  29741
