@@ -78,7 +78,7 @@ foreach my $file ( readdir(DIR) ) {
     my $fstem = $stem;
     
     my $is_sorted = ( $fstem =~ s/\.sorted_shovill/.shovill/ || $fstem =~ s/\.sorted// ) ? 1 : 0;
-    warn("$fstem\n");
+    warn("$fstem looking for file $fstem.bbmap_summary.txt\n");
     my $sumstatfile = File::Spec->catfile($read_map_stat,
 				      sprintf("%s.bbmap_summary.txt",$fstem));
     if ( -f $sumstatfile ) {

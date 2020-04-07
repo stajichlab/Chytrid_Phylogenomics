@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --nodes 1 --ntasks 24 --mem 96gb -J AsmAAFTF --out logs/AAFTF_asm.%a.%A.log -p intel --time 7-0:00:00
+#SBATCH --nodes 1 --ntasks 24 --mem 128gb -J AsmAAFTF --out logs/AAFTF_asm.%a.%A.log -p intel --time 7-0:00:00
 
 hostname
-MEM=96
+MEM=128
 CPU=$SLURM_CPUS_ON_NODE
 N=${SLURM_ARRAY_TASK_ID}
 
