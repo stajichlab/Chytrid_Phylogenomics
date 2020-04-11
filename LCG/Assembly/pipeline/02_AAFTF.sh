@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --nodes 1 --ntasks 24 --mem 128gb -J AsmAAFTF --out logs/AAFTF_asm.%a.%A.log -p intel --time 7-0:00:00
+#SBATCH --nodes 1 --ntasks 24 --mem 96gb -J AsmAAFTF --out logs/AAFTF_asm.%a.%A.log -p intel --time 7-0:00:00
 
 hostname
-MEM=128
+MEM=96
 CPU=$SLURM_CPUS_ON_NODE
 N=${SLURM_ARRAY_TASK_ID}
 
@@ -47,51 +47,55 @@ do
 
     LEFT=$WORKDIR/${BASE}_filtered_1.fastq.gz
     RIGHT=$WORKDIR/${BASE}_filtered_2.fastq.gz
-
-    echo "$BASE"
-    if [ ! -f $ASMFILE ]; then    
-	if [ ! -f $LEFT ]; then
-	    echo "Cannot find LEFT $LEFT or RIGHT $RIGHT - did you run"
-	    echo "$OUTDIR/${BASE}_R1.fq.gz $OUTDIR/${BASE}_R2.fq.gz"
-	    exit
-	fi
-	echo "running assemble for $BASE"
-	if [[ $ASMTOOL == "dipspades" ]]; then
-	    module switch SPAdes/3.11.1
-	    if [ ! -f $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta ]; then
-		if [ -d $WORKDIR/dipspades_$BASE ]; then
-		    dipspades.py --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE --continue
-		else
-	    	    dipspades.py -1 $LEFT -2 $RIGHT --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE
-		fi
-	    fi
-	    if [ -f $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta ]; then
-		rsync -a $WORKDIR/dipspades_$BASE/spades/scaffolds.fasta $ASM/${BASE}.spades.fasta
-		rsync -a $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus.fasta
-		rsync -a $WORKDIR/dipspades_$BASE/dipspades/paired_consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus_paired.fasta
-		rsync -a $WORKDIR/dipspades_$BASE/dipspades/unpaired_consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus_unpaired.fasta
-		AAFTF assess -i $ASM/${BASE}.spades.fasta -r $ASM/${BASE}.spades.stats.txt
-		AAFTF assess -i $ASM/${BASE}.dipspades_consensus.fasta -r $ASM/${BASE}.dipspades.stats.txt
-		rsync -a $ASM/${BASE}.dipspades_consensus.fasta $ASMFILE
-		# rm -rf $WORKDIR/dipspades_${BASE}
-		if [[ $ASSEMBLER == "NA" ]]; then
-		    echo "fix input file to specify dipspades or spades instead of NA"
-		    echo "compare spades assembly success for the two files for $ASM/${BASE}.*.stats.txt"
-		    exit
-		fi
-	    fi	
+    if [ ! -f $LEFT ]; then
+	echo "Cannot find LEFT $LEFT or RIGHT $RIGHT - did you run"
+	echo "$OUTDIR/${BASE}_R1.fq.gz $OUTDIR/${BASE}_R2.fq.gz"
+	exit
+    fi
+    echo "running assemble for $BASE"
+    module switch SPAdes/3.11.1
+    if [ ! -f $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta ]; then
+	if [ -d $WORKDIR/dipspades_$BASE ]; then
+	    dipspades.py --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE --continue
 	else
-	    AAFTF assemble -c $CPU --left $LEFT --right $RIGHT  \
-		-o $ASMFILE -w $WORKDIR/spades_$BASE --mem $MEM
-	    AAFTF assess -i $ASMFILE -r $ASM/${BASE}.spades.stats.txt
-	    if [ -s $ASMFILE ]; then
-		rm -rf $WORKDIR/spades_${BASE}
-	    else
-		echo "SPADES must have failed, exiting"
-		exit
-	    fi
+	    dipspades.py -1 $LEFT -2 $RIGHT --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE
+	fi
+   
+	if [ -f $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta ]; then
+	    rsync -a $WORKDIR/dipspades_$BASE/spades/scaffolds.fasta $ASM/${BASE}.spades.fasta
+	    rsync -a $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus.fasta
+	    rsync -a $WORKDIR/dipspades_$BASE/dipspades/paired_consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus_paired.fasta
+	    rsync -a $WORKDIR/dipspades_$BASE/dipspades/unpaired_consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus_unpaired.fasta
+	    AAFTF assess -i $ASM/${BASE}.spades.fasta -r $ASM/${BASE}.spades.stats.txt
+	    AAFTF assess -i $ASM/${BASE}.dipspades_consensus.fasta -r $ASM/${BASE}.dipspades.stats.txt
 	fi
     fi
+
+    if [ ! -f $ASMFILE ]; then    
+	if [[ $ASMTOOL == "dipspades" ]]; then
+	    rsync -a $ASM/${BASE}.dipspades_consensus.fasta $ASMFILE
+	elif [[ $ASMTOOL == "spades" ]]; then
+	    rsync -a $ASM/${BASE}.spades.fasta $ASMFILE
+	fi
+    fi	
+    	# rm -rf $WORKDIR/dipspades_${BASE}
+	if [[ $ASSEMBLER == "NA" ]]; then
+	    echo "fix input file to specify dipspades or spades instead of NA"
+	    echo "compare spades assembly success for the two files for $ASM/${BASE}.*.stats.txt"
+	    exit
+	fi
+
+#    AAFTF assemble -c $CPU --left $LEFT --right $RIGHT  \
+#	-o $ASMFILE -w $WORKDIR/spades_$BASE --mem $MEM
+#    AAFTF assess -i $ASMFILE -r $ASM/${BASE}.spades.stats.txt
+#	    if [ -s $ASMFILE ]; then
+#		rm -rf $WORKDIR/spades_${BASE}
+#	    else
+#		echo "SPADES must have failed, exiting"
+#		exit
+#	    fi
+#	fi
+#    fi
     if [ ! -f $ASMFILE ]; then
 	echo "No assembly from spades/dipspades ($ASMFILE) exiting"
 	exit

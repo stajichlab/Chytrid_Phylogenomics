@@ -1,8 +1,8 @@
 ID	Genus	species	assembly_method	Phylum
 ARG085	Chytriomyces	hyalinus	dipspades	Chytridiomycota
 ARG121	Chytriomyces	hyalinus	dipspades	Chytridiomycota
-JEL0065	Siphonaria	sp.	spades	Chytridiomycota
-JEL0112	Entophlyctis	sp.	spades	Chytridiomycota
+JEL0065	Siphonaria	sp.	dipspades	Chytridiomycota
+JEL0112	Entophlyctis	sp.	dipspades	Chytridiomycota
 JEL0117	Chytriomyces	hyalinus	dipspades	Chytridiomycota
 JEL0120	Entophlyctis	luteolus	spades	Chytridiomycota
 JEL0129	Entophlyctis	luteolus	spades	Chytridiomycota
