@@ -29,7 +29,7 @@ if [ $N -gt $(expr $MAX) ]; then
 fi
 
 IFS=,
-cat $SAMPFILE | sed -n ${N}p | while read BASE SPECIES STRAIN BIOPROJECT BIOSAMPLE SRA LOCUS
+tail -n +2 $SAMPFILE | sed -n ${N}p | while read BASE SPECIES STRAIN BIOPROJECT BIOSAMPLE SRA LOCUS
 do
   name=$BASE
  if [ ! -f $INDIR/${name}.sorted.fasta ]; then
