@@ -7,6 +7,17 @@ Entrez.email = 'jason.stajich@ucr.edu'
 insamples = "../Assembly/ploidy_target_assembly.tsv"
 outsamples="samples.csv"
 
+# the input format is specific to this chytrid project but it only
+# really uses the STRAIN column to determine the strain to look for in NCBI
+# BioProject / BioSample
+# usage: query_biosample_prefix.py in_sample_file outsamples
+# defaults:  in_sample_file = ../Assembly/ploidy_target_assembly.tsv
+#            outsamples     = samples.csv
+
+# in_samplefile is expected to have the followng columns and be tab delimited
+#ID	Genus	species	assembly_method	Phylum
+#ID==STRAIN
+
 if len(sys.argv) > 1:
     insamples = sys.argv[1]
 
@@ -14,6 +25,9 @@ if len(sys.argv) > 2:
     outsamples = sys.argv[2]
 
 seen = {}
+# to deal with crashes and re-running, this first reads in an existing
+# sample.csv file and populates the dictionary with that info first
+# so it can pick up where it left off or deal with hard-coded values
 if os.path.exists(outsamples):
     with open(outsamples,"rU") as preprocess:
         incsv = csv.reader(preprocess,delimiter=",")
@@ -21,8 +35,10 @@ if os.path.exists(outsamples):
         for row in incsv:
             seen[row[0]] = row
 
+# read the in_sample file and also set up the output
 with open(insamples,"rU") as infh, open(outsamples,"w") as outfh:
     outcsv    = csv.writer(outfh,delimiter=",")
+    # the output columns will be the following
     outcsv.writerow(['SPECIES','STRAIN','PHYLUM',
                      'BIOSAMPLE','BIOPROJECT','SRA','LOCUSTAG'])
 
@@ -36,6 +52,12 @@ with open(insamples,"rU") as infh, open(outsamples,"w") as outfh:
             outrow = seen[strain]
             outcsv.writerow(outrow)
             continue
+        # This is the part that does the magic for Entrez (NCBI) lookup
+        # we essentially leave it that a strain alone is sufficient
+        # for a lookup.
+
+        # this is not going to work for multiple strains in the BioSample
+        # database
 
         handle = Entrez.esearch(db="biosample",retmax=10,term=strain)
         record = Entrez.read(handle)
@@ -47,6 +69,7 @@ with open(insamples,"rU") as infh, open(outsamples,"w") as outfh:
         BIOPROJECTID=""
 
         for biosampleid in record["IdList"]:
+            print("biosample %s found for query '%s'"%(biosampleid,strain))
             handle = Entrez.efetch(db="biosample", id=biosampleid)
             tree = ET.parse(handle)
             root = tree.getroot()
