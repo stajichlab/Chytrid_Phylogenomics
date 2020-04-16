@@ -36,7 +36,7 @@ if os.path.exists(outsamples):
             seen[row[0]] = row
 
 # read the in_sample file and also set up the output
-with open(insamples,"rU") as infh, open(outsamples,"w") as outfh:
+with open(insamples,"rU") as infh, open(outsamples,"w",newline='\n') as outfh:
     outcsv    = csv.writer(outfh,delimiter=",")
     # the output columns will be the following
     outcsv.writerow(['SPECIES','STRAIN','PHYLUM',
@@ -45,13 +45,18 @@ with open(insamples,"rU") as infh, open(outsamples,"w") as outfh:
     samplescsv = csv.reader(infh,delimiter="\t")
     header = next(samplescsv)
     for row in samplescsv:
-        print(row)
-        outrow = ["%s %s"%(row[1],row[2]),row[0],row[4]]
-        strain = row[1]
+        strain  = row[0]
+        species = " ".join([row[1],row[2]])
+        phylum  = row[4]
+        outrow = [ species,strain,phylum]
+        query = " ".join([species,strain])
+
         if strain in seen:
             outrow = seen[strain]
             outcsv.writerow(outrow)
             continue
+
+        print("query for biosample is %s"%(query))
         # This is the part that does the magic for Entrez (NCBI) lookup
         # we essentially leave it that a strain alone is sufficient
         # for a lookup.
