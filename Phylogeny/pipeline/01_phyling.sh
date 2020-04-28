@@ -11,8 +11,8 @@ if [ ! -f config.txt ]; then
 fi
 
 source config.txt
-if [ ! -z $PREFIX ]; then
-	rm -rf aln/$PREFIX
+if [ ! -z $HMM ]; then
+	rm -rf aln/$HMM
 fi
 # probably should check to see if allseq is newer than newest file in the folder?
 rm prefix.tab
