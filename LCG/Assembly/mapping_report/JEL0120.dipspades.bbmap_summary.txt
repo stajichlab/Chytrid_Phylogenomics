@@ -1,0 +1,50 @@
+Reads Used:           	4405392	(658445808 bases)
+
+Mapping:          	351.495 seconds.
+Reads/sec:       	12533.30
+kBases/sec:      	1873.27
+
+
+Pairing data:   	pct pairs	num pairs 	pct bases	   num bases
+
+mated pairs:     	 78.2497% 	  1723603 	 78.1946% 	   514869194
+bad pairs:       	  7.0939% 	   156257 	  7.1126% 	    46832514
+insert size avg: 	  549.15
+
+
+Read 1 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 89.2263% 	  1965384 	 89.2022% 	   293673983
+unambiguous:     	 87.7225% 	  1932259 	 87.7168% 	   288783821
+ambiguous:       	  1.5038% 	    33125 	  1.4854% 	     4890162
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	 63.8063% 	  1405458 	 63.8142% 	   210091108
+semiperfect site:	 64.3753% 	  1417993 	 64.3474% 	   211846266
+rescued:         	  1.5916% 	    35059
+
+Match Rate:      	      NA 	       NA 	 90.1755% 	   288872819
+Error Rate:      	 27.8702% 	   547757 	  9.4447% 	    30255648
+Sub Rate:        	 27.5602% 	   541664 	  0.9043% 	     2896739
+Del Rate:        	  2.8432% 	    55880 	  8.3258% 	    26671237
+Ins Rate:        	  4.5752% 	    89920 	  0.2147% 	      687672
+N Rate:          	  2.8413% 	    55842 	  0.3798% 	     1216753
+
+
+Read 2 data:      	pct reads	num reads 	pct bases	   num bases
+
+mapped:          	 88.9180% 	  1958593 	 88.8927% 	   292655049
+unambiguous:     	 87.4213% 	  1925625 	 87.4134% 	   287784984
+ambiguous:       	  1.4967% 	    32968 	  1.4793% 	     4870065
+low-Q discards:  	  0.0000% 	        0 	  0.0000% 	           0
+
+perfect best site:	 59.2868% 	  1305909 	 59.2758% 	   195149440
+semiperfect site:	 59.8096% 	  1317424 	 59.7639% 	   196756318
+rescued:         	  1.7677% 	    38937
+
+Match Rate:      	      NA 	       NA 	 89.6520% 	   287381884
+Error Rate:      	 32.9027% 	   644430 	  9.9518% 	    31900733
+Sub Rate:        	 32.6321% 	   639131 	  1.0433% 	     3344250
+Del Rate:        	  2.8527% 	    55873 	  8.7030% 	    27897705
+Ins Rate:        	  4.5558% 	    89230 	  0.2055% 	      658778
+N Rate:          	  2.6427% 	    51759 	  0.3962% 	     1270137
