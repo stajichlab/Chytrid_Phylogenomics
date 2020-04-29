@@ -16,7 +16,6 @@ JEL0563	Geranomyces	michiganensis	spades	Chytridiomycota
 JEL0566	Geranomyces	variabilis	spades	Chytridiomycota
 JEL0567	Geranomyces	variabilis	spades	Chytridiomycota
 JEL0680	Kappamyces	sp.	dipspades	Chytridiomycota
-JEL0695	Paranamyces	uniporus	dipspades	Chytridiomycota
 JEL0708	Gaertneriomyces	sp.	dipspades	Chytridiomycota
 JEL0728	Terramyces	sp.	dipspades	Chytridiomycota
 JEL0754	Phlyctochytrium	bullatum	spades	Chytridiomycota
@@ -28,7 +27,6 @@ JEL0829	Kappamyces	sp.	dipspades	Chytridiomycota
 JEL0837	Blyttiomyces	sp.	spades	Chytridiomycota
 JEL0838	Boothiomyces	sp.	dipspades	Chytridiomycota
 JEL0842	Unknown Chytridiales	sp.	dipspades	Chytridiomycota
-JEL0847	Paraphysoderma	sedebokerense	dipspades	Blastocladiomycota
 JEL0866	Boothiomyces	sp.	dipspades	Chytridiomycota
 JEL0917	Rhizoclosmatium	hyalinum	dipspades	Chytridiomycota
 KLL_TL_06062013	Dinochytrium	kinnereticum	spades	Chytridiomycota
@@ -41,7 +39,7 @@ JEL0513	Physocladia	obscura	spades	Chytridiomycota
 JEL0729	Irineochytrium	annulatum	spades	Chytridiomycota
 JEL0916	Quaeritorhiza	haematococci	spades	Chytridiomycota
 PLAUS21	Boothiomyces	macroporosum	dipspades	Chytridiomycota
-C_tenue	Cladochytrium	tenue	spades	Chytridiomycota
+CCIBt4013	Cladochytrium	tenue	spades	Chytridiomycota
 JEL0888	Unknown	unknown	spades	Chytridiomycota
 WJD170	Borealophlyctis	nickersoniae	dipspades	Chytridiomycota
 Burma_1F	Allomyces	arbuscula	dipspades	Blastocladiomycota
