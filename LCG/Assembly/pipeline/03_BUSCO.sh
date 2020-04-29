@@ -34,41 +34,25 @@ SAMPLEFILE=ploidy_target_assembly.tsv
 SEED_SPECIES="batrachochytrium_dendrobatidis_G2"
 tail -n +2 $SAMPLEFILE | sed -n ${N}p | while read STRAIN GENUS SPECIES ASMTYPE PHYLUM
 do
-	BASE=${GENUS}_${SPECIES}_${STRAIN}
 	LINEAGE=$(realpath $LINEAGE)
-	if [ -d $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE ]; then
-	    SEED_SPECIES=BUSCO_$BASE
+	if [ -d $AUGUSTUS_CONFIG_PATH/species/BUSCO_$STRAIN ]; then
+	    SEED_SPECIES=BUSCO_$STRAIN
 	fi
-	for EXT in .sorted .sorted_shovill .spades .dipspades_consensus
+	for EXT in .spades_sorted .sorted_shovill .dipspades_sorted .dipspades
 	do
-	    NAME=${BASE}${EXT}
+	    NAME=${STRAIN}${EXT}
 	    GENOMEFILE=$(realpath $GENOMEFOLDER/$NAME.${ENDING})
 	    if [ ! -s $GENOMEFILE ]; then
 		echo "Skipping $NAME does not exist"
 		continue
 	    elif [ -d "$OUTFOLDER/run_${NAME}" ];  then
-		echo "Already have run $BASE in folder busco - do you need to delete it to rerun?"
+		echo "Already have run $STRAIN in folder busco - do you need to delete it to rerun?"
 	    else
 		pushd $OUTFOLDER
-		if [[ $SEED_SPECIES == "BUSCO_$BASE" ]]; then
-		    # already have run optimization
-		    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $NAME \
-			-m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES
-		else
-		    run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $NAME -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES --long
-#		    rsync -av run_${NAME}/augustus_output/retraining_parameters/ $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE/
-#		    for d in $(ls $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE/*.cfg);
-#		    do 
-#			m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).cfg/_$2.cfg/; s/\.sorted//g'); 
-#			mv $d $m
-#		    done
-#		    for d in $(ls $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE/*.txt);
-#		    do	
-#			 m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).txt/_$2.txt/; s/\.sorted//g');
-#		    done
-		fi
+		# not sure if we should run --long re-training - it helps some but takes a lot longer
+		run_BUSCO.py -i $GENOMEFILE -l $LINEAGE -o $NAME -m geno --cpu $CPU --tmp $TEMP -sp $SEED_SPECIES
 		popd
-	    fi	
+	    fi
 	done
 done
 rm -rf $TEMP

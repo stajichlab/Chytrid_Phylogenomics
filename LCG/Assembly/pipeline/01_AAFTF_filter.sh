@@ -33,29 +33,29 @@ tail -n +2 $SAMPLEFILE | sed -n ${N}p | while read STRAIN GENUS SPECIES ASMTYPE 
 do
 	BASE=${GENUS}_${SPECIES}_${STRAIN}
 
-	ASMFILE=$ASM/${BASE}.spades.fasta
-	VECCLEAN=$ASM/${BASE}.vecscreen.fasta
-	PURGE=$ASM/${BASE}.sourpurge.fasta
-	CLEANDUP=$ASM/${BASE}.rmdup.fasta
-	PILON=$ASM/${BASE}.pilon.fasta
-	SORTED=$ASM/${BASE}.sorted.fasta
-	STATS=$ASM/${BASE}.sorted.stats.txt
-	LEFTTRIM=$TMPTRIM/${BASE}_1P.fastq.gz
-	RIGHTTRIM=$TMPTRIM/${BASE}_2P.fastq.gz
+	ASMFILE=$ASM/${STRAIN}.spades.fasta
+	VECCLEAN=$ASM/${STRAIN}.vecscreen.fasta
+	PURGE=$ASM/${STRAIN}.sourpurge.fasta
+	CLEANDUP=$ASM/${STRAIN}.rmdup.fasta
+	PILON=$ASM/${STRAIN}.pilon.fasta
+	SORTED=$ASM/${STRAIN}.sorted.fasta
+	STATS=$ASM/${STRAIN}.sorted.stats.txt
+	LEFTTRIM=$TMPTRIM/${STRAIN}_1P.fastq.gz
+	RIGHTTRIM=$TMPTRIM/${STRAIN}_2P.fastq.gz
 
-	LEFT=$WORKDIR/${BASE}_filtered_1.fastq.gz
-	RIGHT=$WORKDIR/${BASE}_filtered_2.fastq.gz
+	LEFT=$WORKDIR/${STRAIN}_filtered_1.fastq.gz
+	RIGHT=$WORKDIR/${STRAIN}_filtered_2.fastq.gz
 	mkdir -p $WORKDIR $TMPTRIM
-	echo "$BASE"
-	if [[ ! -f $ASMFILE || ! -f $SORTED ]]; then    
+	echo "$STRAIN"
+	if [[ ! -f $ASMFILE || ! -f $SORTED ]]; then
 	    if [ ! -f $LEFT ]; then
-		echo "$OUTDIR/${BASE}_R1.fq.gz $OUTDIR/${BASE}_R2.fq.gz"
+		echo "$OUTDIR/${STRAIN}_R1.fq.gz $OUTDIR/${STRAIN}_R2.fq.gz"
 		#if [ ! -f $LEFTTRIM ]; then
-		echo "Running Trim on $OUTDIR/${BASE}_R1.fq.gz and $OUTDIR/${BASE}_R2.fq.gz"
-		rsync -a -v $OUTDIR/${BASE}_R1.fq.gz $OUTDIR/${BASE}_R2.fq.gz $TMPTRIM
-		AAFTF trim --method bbduk --memory $MEM --left $TMPTRIM/${BASE}_R1.fq.gz --right $TMPTRIM/${BASE}_R2.fq.gz -c $CPU -o $TMPTRIM/${BASE}
-		#AAFTF trim --method bbduk --memory $MEM --left $OUTDIR/${BASE}_R1.fq.gz --right $OUTDIR/${BASE}_R2.fq.gz -c $CPU -o $WORKDIR/${BASE}
-		AAFTF filter -c $CPU --memory $MEM -o $TMPTRIM/${BASE} --left $LEFTTRIM --right $RIGHTTRIM --aligner bbduk
+		echo "Running Trim on $OUTDIR/${STRAIN}_R1.fq.gz and $OUTDIR/${STRAIN}_R2.fq.gz"
+		rsync -a -v $OUTDIR/${STRAIN}_R1.fq.gz $OUTDIR/${STRAIN}_R2.fq.gz $TMPTRIM
+		AAFTF trim --method bbduk --memory $MEM --left $TMPTRIM/${STRAIN}_R1.fq.gz --right $TMPTRIM/${STRAIN}_R2.fq.gz -c $CPU -o $TMPTRIM/${STRAIN}
+		#AAFTF trim --method bbduk --memory $MEM --left $OUTDIR/${STRAIN}_R1.fq.gz --right $OUTDIR/${STRAIN}_R2.fq.gz -c $CPU -o $WORKDIR/${BASE}
+		AAFTF filter -c $CPU --memory $MEM -o $TMPTRIM/${STRAIN} --left $LEFTTRIM --right $RIGHTTRIM --aligner bbduk
 		echo "$LEFT $RIGHT"
 		if [ -f $TMPTRIM/$(basename $LEFT) ]; then
 		    rsync -av $TMPTRIM/$(basename $LEFT) $LEFT

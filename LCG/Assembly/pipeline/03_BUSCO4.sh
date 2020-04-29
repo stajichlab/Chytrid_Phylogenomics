@@ -35,22 +35,21 @@ SAMPLEFILE=ploidy_target_assembly.tsv
 SEED_SPECIES="batrachochytrium_dendrobatidis_G2"
 tail -n +2 $SAMPLEFILE | sed -n ${N}p | while read STRAIN GENUS SPECIES ASMTYPE PHYLUM
 do
-	BASE=${GENUS}_${SPECIES}_${STRAIN}
 	LINEAGE=$(realpath $LINEAGE)
-	if [ -d $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE ]; then
-	    SEED_SPECIES=BUSCO_$BASE
+	if [ -d $AUGUSTUS_CONFIG_PATH/species/BUSCO_$STRAIN ]; then
+	    SEED_SPECIES=BUSCO_$STRAIN
 	fi
 	for EXT in .sorted .sorted_shovill .spades .dipspades_consensus
 	do
-	    NAME=${BASE}${EXT}
+	    NAME=${STRAIN}${EXT}
 	    GENOMEFILE=$(realpath $GENOMEFOLDER/$NAME.${ENDING})
 	    if [ ! -s $GENOMEFILE ]; then
 		echo "Skipping $NAME does not exist"
 		continue
 	    elif [ -d "$OUTFOLDER/${NAME}" ];  then
-		echo "Already have run $BASE in folder busco - do you need to delete it to rerun?"
+		echo "Already have run $STRAIN in folder busco - do you need to delete it to rerun?"
 	    else
-		if [[ $SEED_SPECIES == "BUSCO_$BASE" ]]; then
+		if [[ $SEED_SPECIES == "BUSCO_$STRAIN" ]]; then
 		    # already have run optimization
 		    busco -in $GENOMEFILE -l $LINEAGE -o $NAME --out_path $OUTFOLDER \
 			-m geno --cpu $CPU ---augustus_species $SEED_SPECIES --offline
@@ -58,16 +57,16 @@ do
 		    busco --in $GENOMEFILE -l $LINEAGE -o $NAME -m geno \
 		     --cpu $CPU --augustus_species $SEED_SPECIES --long --offline --out_path $OUTFOLDER
 
-		    rsync -av --progress ${NAME}/augustus_output/retraining_parameters/ $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE/
+		    rsync -av --progress ${NAME}/augustus_output/retraining_parameters/ $AUGUSTUS_CONFIG_PATH/species/BUSCO_$STRAIN/
 
-		    for d in $(ls $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE/*.cfg);
-		    do 
-			m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).cfg/_$2.cfg/; s/\.sorted//g'); 
+		    for d in $(ls $AUGUSTUS_CONFIG_PATH/species/BUSCO_$STRAIN/*.cfg);
+		    do
+			m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).cfg/_$2.cfg/; s/\.sorted//g');
 			mv $d $m
 		    done
-		    for d in $(ls $AUGUSTUS_CONFIG_PATH/species/BUSCO_$BASE/*.txt);
-		    do	
-			 m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).txt/_$2.txt/; s/\.sorted//g');
+		    for d in $(ls $AUGUSTUS_CONFIG_PATH/species/BUSCO_$STRAIN/*.txt);
+		    do
+			       m=$(echo $d | perl -p -e 's/_(\d+)_([^_]+).txt/_$2.txt/; s/\.sorted//g');
 		    done
 		fi
 	    fi

@@ -1,5 +1,6 @@
 #!/bin/bash
-#SBATCH --nodes 1 --ntasks 24 --mem 96gb -J AsmAAFTF --out logs/AAFTF_asm.%a.%A.log -p intel --time 7-0:00:00
+#SBATCH --nodes 1 --ntasks 24 --mem 96gb -J AsmAAFTF
+#SBATCH --out logs/AAFTF_asm.%a.%A.log -p intel --time 7-0:00:00
 
 hostname
 MEM=96
@@ -18,6 +19,7 @@ module load AAFTF
 
 OUTDIR=input
 SAMPLEFILE=ploidy_target_assembly.tsv
+BESTFILE=best_assembly_choice.tsv
 ASM=genomes
 
 mkdir -p $ASM
@@ -26,106 +28,107 @@ if [ -z $CPU ]; then
     CPU=1
 fi
 WORKDIR=working_AAFTF
-mkdir -p $WORKDIR
+TEMPDIR=/scratch/$USER
+
+mkdir -p $WORKDIR $TEMPDIR
 
 tail -n +2 $SAMPLEFILE | sed -n ${N}p | while read STRAIN GENUS SPECIES ASSEMBLER PHYLUM
 do
     BASE=${GENUS}_${SPECIES}_${STRAIN}
     ASMTOOL=$ASSEMBLER
-    if [[ $ASSEMBLER == "NA" ]]; then	
-	ASMTOOL="dipspades"
-    fi
-    
-    ASMFILE=$ASM/${BASE}.asm_raw.fasta
-    
-    VECCLEAN=$ASM/${BASE}.vecscreen.fasta
-    PURGE=$ASM/${BASE}.sourpurge.fasta
-    CLEANDUP=$ASM/${BASE}.rmdup.fasta
-    PILON=$ASM/${BASE}.pilon.fasta
-    SORTED=$ASM/${BASE}.sorted.fasta
-    STATS=$ASM/${BASE}.sorted.stats.txt
 
-    LEFT=$WORKDIR/${BASE}_filtered_1.fastq.gz
-    RIGHT=$WORKDIR/${BASE}_filtered_2.fastq.gz
+    LEFT=$WORKDIR/${STRAIN}_filtered_1.fastq.gz
+    RIGHT=$WORKDIR/${STRAIN}_filtered_2.fastq.gz
     if [ ! -f $LEFT ]; then
-	echo "Cannot find LEFT $LEFT or RIGHT $RIGHT - did you run"
-	echo "$OUTDIR/${BASE}_R1.fq.gz $OUTDIR/${BASE}_R2.fq.gz"
-	exit
+      echo "Cannot find LEFT $LEFT or RIGHT $RIGHT - did you run"
+      echo "$OUTDIR/${STRAIN}_R1.fq.gz $OUTDIR/${STRAIN}_R2.fq.gz"
+      exit
     fi
-    echo "running assemble for $BASE"
-    module switch SPAdes/3.11.1
-    if [ ! -f $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta ]; then
-	if [ -d $WORKDIR/dipspades_$BASE ]; then
-	    dipspades.py --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE --continue
-	else
-	    dipspades.py -1 $LEFT -2 $RIGHT --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$BASE
-	fi
-   
-	if [ -f $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta ]; then
-	    rsync -a $WORKDIR/dipspades_$BASE/spades/scaffolds.fasta $ASM/${BASE}.spades.fasta
-	    rsync -a $WORKDIR/dipspades_$BASE/dipspades/consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus.fasta
-	    rsync -a $WORKDIR/dipspades_$BASE/dipspades/paired_consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus_paired.fasta
-	    rsync -a $WORKDIR/dipspades_$BASE/dipspades/unpaired_consensus_contigs.fasta $ASM/${BASE}.dipspades_consensus_unpaired.fasta
-	    AAFTF assess -i $ASM/${BASE}.spades.fasta -r $ASM/${BASE}.spades.stats.txt
-	    AAFTF assess -i $ASM/${BASE}.dipspades_consensus.fasta -r $ASM/${BASE}.dipspades.stats.txt
-	fi
+    echo "running assemble for $STRAIN"
+
+    if [[ ! -f $ASM/${STRAIN}.spades.fasta ]]; then
+      #	module switch SPAdes/3.14.0
+
+      mkdir -p $TEMPDIR
+      AAFTF assemble -c $CPU --left $LEFT --right $RIGHT  \
+	    -o $ASM/${STRAIN}.spades.fasta -w $TEMPDIR/spades_${STRAIN}_$$ --mem $MEM
+
+	     if [ -f $ASM/${STRAIN}.spades.fasta ]; then
+	        rm -rf $TEMPDIR/spades_${STRAIN}_$$
+	       fi
+
+	        AAFTF assess -i $ASM/${STRAIN}.spades.fasta -r $ASM/${STRAIN}.spades.stats.txt
     fi
 
-    if [ ! -f $ASMFILE ]; then    
-	if [[ $ASMTOOL == "dipspades" ]]; then
-	    rsync -a $ASM/${BASE}.dipspades_consensus.fasta $ASMFILE
-	elif [[ $ASMTOOL == "spades" ]]; then
-	    rsync -a $ASM/${BASE}.spades.fasta $ASMFILE
-	fi
-    fi	
-    	# rm -rf $WORKDIR/dipspades_${BASE}
-	if [[ $ASSEMBLER == "NA" ]]; then
-	    echo "fix input file to specify dipspades or spades instead of NA"
-	    echo "compare spades assembly success for the two files for $ASM/${BASE}.*.stats.txt"
-	    exit
-	fi
+    if [[ $ASSEMBLER == "dipspades" ]]; then
+	     if [[  -s $ASM/${STRAIN}.${ASMTOOL}.fasta || -s $ASM/${STRAIN}.dipspades_consensus.fasta ]]; then
+         echo "dipspades done -- not running dipspades $ASM/${STRAIN}.dipspades_conseneus.fasta"
+         if [ ! -s $ASM/${STRAIN}.${ASMTOOL}.fasta ]; then
+           rsync -a $ASM/${STRAIN}.dipspades_consensus.fasta $ASM/${STRAIN}.${ASMTOOL}.fasta
+         fi
+       else
+         module switch SPAdes/3.11.1
+         if [ -d $WORKDIR/dipspades_$STRAIN ]; then
+           dipspades.py --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$STRAIN --continue
+         else
+           dipspades.py -1 $LEFT -2 $RIGHT --threads $CPU --memory $MEM -o $WORKDIR/dipspades_$STRAIN --tmp-dir $TEMPDIR/dipspades_${STRAIN}
+         fi
 
-#    AAFTF assemble -c $CPU --left $LEFT --right $RIGHT  \
-#	-o $ASMFILE -w $WORKDIR/spades_$BASE --mem $MEM
-#    AAFTF assess -i $ASMFILE -r $ASM/${BASE}.spades.stats.txt
-#	    if [ -s $ASMFILE ]; then
-#		rm -rf $WORKDIR/spades_${BASE}
-#	    else
-#		echo "SPADES must have failed, exiting"
-#		exit
-#	    fi
-#	fi
-#    fi
-    if [ ! -f $ASMFILE ]; then
-	echo "No assembly from spades/dipspades ($ASMFILE) exiting"
-	exit
+         if [ -f $WORKDIR/dipspades_$STRAIN/dipspades/consensus_contigs.fasta ]; then
+           #	    rsync -a $WORKDIR/dipspades_$STRAIN/spades/scaffolds.fasta $ASM/${STRAIN}.spades.fasta
+           rsync -a $WORKDIR/dipspades_$STRAIN/dipspades/consensus_contigs.fasta $ASM/${STRAIN}.dipspades_consensus.fasta
+           rsync -a $WORKDIR/dipspades_$STRAIN/dipspades/paired_consensus_contigs.fasta $ASM/${STRAIN}.dipspades_consensus_paired.fasta
+           rsync -a $WORKDIR/dipspades_$STRAIN/dipspades/unpaired_consensus_contigs.fasta $ASM/${STRAIN}.dipspades_consensus_unpaired.fasta
+
+           rsync -a $ASM/${STRAIN}.dipspades_consensus.fasta $ASM/${STRAIN}.${ASMTOOL}.fasta
+         fi
+       fi
+       AAFTF assess -i $ASM/${STRAIN}.${ASMTOOL}.fasta -r $ASM/${STRAIN}.${ASMTOOL}.stats.txt
     fi
-    if [[ ! -f $VECCLEAN && ! -f $VECCLEAN.gz ]]; then
-	AAFTF vecscreen -i $ASMFILE -c $CPU -o $VECCLEAN 
-    fi
-    
-    if [[ ! -f $PURGE && ! -f $PURGE.gz ]]; then
-	AAFTF sourpurge -i $VECCLEAN -o $PURGE -c $CPU --phylum $PHYLUM --left $LEFT  --right $RIGHT
-    fi
-    
-    if [[ ! -f $CLEANDUP && ! -f $CLEANDUP.gz ]]; then
-	AAFTF rmdup -i $PURGE -o $CLEANDUP -c $CPU -m 1000
-    fi
-    
-    if [[ ! -f $PILON && ! -f $PILON.gz ]]; then
-	AAFTF pilon -i $CLEANDUP -o $PILON -c $CPU --left $LEFT  --right $RIGHT 
-    fi
-    
-    if [[ ! -f $PILON && ! -f $PILON.gz ]]; then
-	echo "Error running Pilon, did not create file. Exiting"
-	exit
-    fi
-    
-    if [ ! -f $SORTED ]; then
-	AAFTF sort -i $PILON -o $SORTED
-    fi
-    
-    if [ ! -f $STATS ]; then
-	AAFTF assess -i $SORTED -r $STATS
-    fi
+
+    for ASMTOOL in spades dipspades
+    do
+      ASMFILE=$ASM/${STRAIN}.$ASMTOOL.fasta
+      if [ -f $ASMFILE ]; then
+        echo "processing $ASMFILE for $ASMTOOL"
+      else
+        echo "Cannot process $ASMFILE does not exist for $ASMTOOL"
+        continue
+      fi
+      VECCLEAN=$ASM/${STRAIN}.${ASMTOOL}_vecscreen.fasta
+      PURGE=$ASM/${STRAIN}.${ASMTOOL}_sourpurge.fasta
+      CLEANDUP=$ASM/${STRAIN}.${ASMTOOL}_rmdup.fasta
+      PILON=$ASM/${STRAIN}.${ASMTOOL}_pilon.fasta
+      SORTED=$ASM/${STRAIN}.${ASMTOOL}_sorted.fasta
+      STATS=$ASM/${STRAIN}.${ASMTOOL}_sorted.stats.txt
+
+      if [[ ! -s $VECCLEAN || $ASMFILE -nt $VECCLEAN ]]; then
+        AAFTF vecscreen -i $ASMFILE -c $CPU -o $VECCLEAN
+      fi
+
+      if [[ ! -s $PURGE || $VECCLEAN -nt $PURGE ]]; then
+        AAFTF sourpurge -i $VECCLEAN -o $PURGE -c $CPU --phylum $PHYLUM --left $LEFT  --right $RIGHT
+      fi
+
+      if [[ ! -s $CLEANDUP || $PURGE -nt $CLEANDUP ]]; then
+        AAFTF rmdup -i $PURGE -o $CLEANDUP -c $CPU -m 1000
+      fi
+
+      if [[ ! -s $PILON || $CLEANDUP -nt $PILON ]]; then
+        AAFTF pilon -i $CLEANDUP -o $PILON -c $CPU --left $LEFT  --right $RIGHT
+      fi
+
+      if [[ ! -s $PILON && ! -f $PILON.gz ]]; then
+        echo "Error running Pilon, did not create file. Exiting"
+        exit
+      fi
+
+      if [[ ! -s $SORTED || $PILON -nt $SORTED ]]; then
+        AAFTF sort -i $PILON -o $SORTED
+      fi
+
+      if [[ ! -f $STATS || $SORTED -nt $STATS ]]; then
+        AAFTF assess -i $SORTED -r $STATS
+      fi
+    done
 done
