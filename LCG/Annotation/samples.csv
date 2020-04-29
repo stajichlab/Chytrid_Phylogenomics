@@ -16,32 +16,30 @@ Geranomyces michiganensis,JEL0563,Chytridiomycota,SAMN14511933,PRJNA619733,,HDU8
 Geranomyces variabilis,JEL0566,Chytridiomycota,SAMN14512003,PRJNA619736,,HDU89
 Geranomyces variabilis,JEL0567,Chytridiomycota,SAMN14511912,PRJNA619737,,HDU90
 Kappamyces sp.,JEL0680,Chytridiomycota,SAMN14534852,PRJNA619738,,HDU91
-Paranamyces uniporus,JEL0695,Chytridiomycota,SAMN14511934,PRJNA619741,,HDU94
 Gaertneriomyces sp.,JEL0708,Chytridiomycota,SAMN14534835,PRJNA619732,,HDU85
-Rhizophydium sp.,JEL0728,Chytridiomycota,SAMN14534848,PRJNA619748,,HDV01
+Terramyces sp.,JEL0728,Chytridiomycota,SAMN14534848,PRJNA619748,,HDV01
 Phlyctochytrium bullatum,JEL0754,Chytridiomycota,SAMN14511965,PRJNA619743,,HDU96
 Rhizophlyctis rosea,JEL0764,Chytridiomycota,SAMN14511978,PRJNA619747,,HDV00
-Nowakowskiella sp.,JEL0774,Chytridiomycota,SAMN14569673,PRJNA619740,,HDU93
+Gonapodya sp.,JEL0774,Chytridiomycota,SAMN14569673,PRJNA619740,,HDU93
 Podochytrium sp.,JEL0797,Chytridiomycota,SAMN14534840,PRJNA619745,,HDU98
-Rhizophydium sp.,JEL0801,Chytridiomycota,SAMN14534833,PRJNA619749,,HDV02
-Rhizophydium sp.,JEL0829,Chytridiomycota,SAMN14534849,PRJNA619750,,HDV03
+Unknown Rhizophydiales sp.,JEL0801,Chytridiomycota,SAMN14534833,PRJNA619749,,HDV02
+Kappamyces sp.,JEL0829,Chytridiomycota,SAMN14534849,PRJNA619750,,HDV03
 Blyttiomyces sp.,JEL0837,Chytridiomycota,SAMN14534847,PRJNA619723,,HDU76
-Rhizophydium sp.,JEL0838,Chytridiomycota,SAMN14534844,PRJNA619751,,HDV04
-Rhizophydium sp.,JEL0842,Chytridiomycota,SAMN14534854,PRJNA619752,,HDV05
-Paraphysoderma sedebokerense,JEL0847,Blastocladiomycota,SAMN14512022,PRJNA619742,,HDU95
-Rhizophydium sp.,JEL0866,Chytridiomycota,SAMN14534850,PRJNA619753,,HDV06
-Rhizoclosmatium hyalinus,JEL0917,Chytridiomycota,SAMN14534842,PRJNA619746,,HDU99
+Boothiomyces sp.,JEL0838,Chytridiomycota,SAMN14534844,PRJNA619751,,HDV04
+Unknown Chytridiales sp.,JEL0842,Chytridiomycota,SAMN14534854,PRJNA619752,,HDV05
+Boothiomyces sp.,JEL0866,Chytridiomycota,SAMN14534850,PRJNA619753,,HDV06
+Rhizoclosmatium hyalinum,JEL0917,Chytridiomycota,SAMN14534842,PRJNA619746,,HDU99
 Dinochytrium kinnereticum,KLL_TL_06062013,Chytridiomycota,SAMN14511961,PRJNA619580,,HDU67
 Nowakowskiella sp.,JEL0078,Chytridiomycota,,,,JEL0078
 Thoreauomyces humboldtii,JEL0095,Chytridiomycota,,,,JEL0095
 Rhizophlyctis rosea,JEL0318,Chytridiomycota,,,,JEL0318
 Nowakowskiella sp.,JEL0407,Chytridiomycota,,,,JEL0407
-Lobulomyces sp.,JEL0476,Chytridiomycota,,,,JEL0476
+Clydaea vesicula,JEL0476,Chytridiomycota,,,,JEL0476
 Physocladia obscura,JEL0513,Chytridiomycota,,,,JEL0513
 Irineochytrium annulatum,JEL0729,Chytridiomycota,,,,JEL0729
 Quaeritorhiza haematococci,JEL0916,Chytridiomycota,,,,JEL0916
 Boothiomyces macroporosum,PLAUS21,Chytridiomycota,,,,PLAUS21
-Cladochytrium tenue,C_tenue,Chytridiomycota,,,,CTENU
+Cladochytrium tenue,CCIBt4013,Chytridiomycota,,,,CTENU
 Unknown unknown,JEL0888,Chytridiomycota,,,,JEL0888
 Borealophlyctis nickersoniae,WJD170,Chytridiomycota,,,,WJD170
 Allomyces arbuscula,Burma 1F,Blastocladiomycota,SAMN13165476,PRJNA581157,SRS6105608,GGF31
