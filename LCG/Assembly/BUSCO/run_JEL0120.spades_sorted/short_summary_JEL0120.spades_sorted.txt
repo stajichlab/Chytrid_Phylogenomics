@@ -1,0 +1,15 @@
+# BUSCO version is: 3.0.2 
+# The lineage dataset is: fungi_odb9 (Creation date: 2016-02-13, number of species: 85, number of BUSCOs: 290)
+# To reproduce this run: python /opt/linux/centos/7.x/x86_64/pkgs/busco/3.0.2/scripts/run_BUSCO.py -i /bigdata/stajichlab/shared/projects/Chytrid/Chytrid_Phylogenomics/LCG/Assembly/genomes/Entophlyctis_luteolus_JEL0120.spades_sorted.fasta -o Entophlyctis_luteolus_JEL0120.spades_sorted -l /bigdata/operations/pkgadmin/srv/projects/db/BUSCO/v9/fungi_odb9/ -m genome -c 4 -t /scratch/978385_6/ -sp batrachochytrium_dendrobatidis_G2
+#
+# Summarized benchmarking in BUSCO notation for file /bigdata/stajichlab/shared/projects/Chytrid/Chytrid_Phylogenomics/LCG/Assembly/genomes/Entophlyctis_luteolus_JEL0120.spades_sorted.fasta
+# BUSCO was run in mode: genome
+
+	C:0.0%[S:0.0%,D:0.0%],F:0.0%,M:100.0%,n:290
+
+	0	Complete BUSCOs (C)
+	0	Complete and single-copy BUSCOs (S)
+	0	Complete and duplicated BUSCOs (D)
+	0	Fragmented BUSCOs (F)
+	290	Missing BUSCOs (M)
+	290	Total BUSCO groups searched
