@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Rhizoclosmatium_hyalinus_JEL0917.spades.fasta
+   CONTIG COUNT  =  160466
+   TOTAL LENGTH  =  55987646
+            MIN  =  78
+            MAX  =  120607
+         MEDIAN  =  161
+           MEAN  =  348.91
+            L50  =  15235
+            N50  =  654
+            L90  =  110801
+            N90  =  155

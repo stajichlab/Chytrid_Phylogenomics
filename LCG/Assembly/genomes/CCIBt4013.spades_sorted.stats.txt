@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Unknown_unknown_JEL0888.spades_sorted.fasta
+   CONTIG COUNT  =  12872
+   TOTAL LENGTH  =  48957730
+            MIN  =  995
+            MAX  =  46103
+         MEDIAN  =  2669
+           MEAN  =  3803.43
+            L50  =  2739
+            N50  =  5135
+            L90  =  9199
+            N90  =  1750

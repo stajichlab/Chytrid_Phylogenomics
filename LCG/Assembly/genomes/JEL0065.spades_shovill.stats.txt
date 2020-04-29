@@ -1,0 +1,11 @@
+Assembly statistics for: Siphonaria_sp._JEL0065.spades_shovill.fasta
+   CONTIG COUNT  =  3329
+   TOTAL LENGTH  =  38213462
+            MIN  =  1000
+            MAX  =  154418
+         MEDIAN  =  7849
+           MEAN  =  11478.96
+            L50  =  635
+            N50  =  18576
+            L90  =  2055
+            N90  =  5561

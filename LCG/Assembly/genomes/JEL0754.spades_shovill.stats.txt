@@ -1,0 +1,11 @@
+Assembly statistics for: Phlyctochytrium_bullatum_JEL0754.spades_shovill.fasta
+   CONTIG COUNT  =  3000
+   TOTAL LENGTH  =  41199798
+            MIN  =  1001
+            MAX  =  195298
+         MEDIAN  =  7108
+           MEAN  =  13733.27
+            L50  =  453
+            N50  =  26992
+            L90  =  1628
+            N90  =  6081

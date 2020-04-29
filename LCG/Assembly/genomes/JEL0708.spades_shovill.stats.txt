@@ -1,0 +1,11 @@
+Assembly statistics for: Gaertneriomyces_sp._JEL0708.spades_shovill.fasta
+   CONTIG COUNT  =  181
+   TOTAL LENGTH  =  20410439
+            MIN  =  1002
+            MAX  =  1189554
+         MEDIAN  =  18857
+           MEAN  =  112764.86
+            L50  =  16
+            N50  =  410578
+            L90  =  58
+            N90  =  105626

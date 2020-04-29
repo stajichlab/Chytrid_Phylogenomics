@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Nowakowskiella_sp._JEL0407.dipspades_sorted.fasta
+   CONTIG COUNT  =  1174
+   TOTAL LENGTH  =  22617538
+            MIN  =  1003
+            MAX  =  281512
+         MEDIAN  =  5355
+           MEAN  =  19265.36
+            L50  =  138
+            N50  =  52255
+            L90  =  480
+            N90  =  8887

@@ -1,0 +1,11 @@
+Assembly statistics for: Geranomyces_variabilis_JEL0567.spades_shovill.fasta
+   CONTIG COUNT  =  242
+   TOTAL LENGTH  =  24023410
+            MIN  =  1005
+            MAX  =  1217882
+         MEDIAN  =  7555
+           MEAN  =  99270.29
+            L50  =  20
+            N50  =  363350
+            L90  =  70
+            N90  =  85165

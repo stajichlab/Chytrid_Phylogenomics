@@ -1,0 +1,11 @@
+Assembly statistics for: Lobulomyces_sp._JEL0476.spades_shovill.fasta
+   CONTIG COUNT  =  3541
+   TOTAL LENGTH  =  23959599
+            MIN  =  1000
+            MAX  =  94928
+         MEDIAN  =  3133
+           MEAN  =  6766.34
+            L50  =  427
+            N50  =  14214
+            L90  =  2086
+            N90  =  2492

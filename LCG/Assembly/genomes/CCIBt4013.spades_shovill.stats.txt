@@ -1,0 +1,11 @@
+Assembly statistics for: Unknown_unknown_JEL0888.spades_shovill.fasta
+   CONTIG COUNT  =  15273
+   TOTAL LENGTH  =  53668900
+            MIN  =  1000
+            MAX  =  67605
+         MEDIAN  =  2483
+           MEAN  =  3513.97
+            L50  =  3346
+            N50  =  4653
+            L90  =  11095
+            N90  =  1621

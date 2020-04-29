@@ -1,0 +1,11 @@
+Assembly statistics for: Irineochytrium_annulatum_JEL0729.spades_shovill.fasta
+   CONTIG COUNT  =  3868
+   TOTAL LENGTH  =  40495887
+            MIN  =  1000
+            MAX  =  629286
+         MEDIAN  =  5117
+           MEAN  =  10469.46
+            L50  =  475
+            N50  =  19857
+            L90  =  2144
+            N90  =  4359

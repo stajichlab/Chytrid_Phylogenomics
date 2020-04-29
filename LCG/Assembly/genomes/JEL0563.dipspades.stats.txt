@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Geranomyces_michiganensis_JEL0563.dipspades_consensus.fasta
+   CONTIG COUNT  =  440
+   TOTAL LENGTH  =  22714556
+            MIN  =  79
+            MAX  =  360821
+         MEDIAN  =  16900
+           MEAN  =  51623.99
+            L50  =  55
+            N50  =  131631
+            L90  =  167
+            N90  =  41219

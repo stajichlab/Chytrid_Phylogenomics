@@ -1,0 +1,11 @@
+Assembly statistics for: Dinochytrium_kinnereticum_KLL_TL_06062013.spades_shovill.fasta
+   CONTIG COUNT  =  2027
+   TOTAL LENGTH  =  32637222
+            MIN  =  1006
+            MAX  =  266222
+         MEDIAN  =  6412
+           MEAN  =  16101.24
+            L50  =  252
+            N50  =  39595
+            L90  =  984
+            N90  =  6751

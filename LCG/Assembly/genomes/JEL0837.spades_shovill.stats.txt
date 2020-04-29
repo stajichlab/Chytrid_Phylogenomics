@@ -1,0 +1,11 @@
+Assembly statistics for: Blyttiomyces_sp._JEL0837.spades_shovill.fasta
+   CONTIG COUNT  =  850
+   TOTAL LENGTH  =  15974290
+            MIN  =  1019
+            MAX  =  157606
+         MEDIAN  =  10845
+           MEAN  =  18793.28
+            L50  =  135
+            N50  =  34460
+            L90  =  462
+            N90  =  9309

@@ -1,0 +1,11 @@
+Assembly statistics for: Rhizoclosmatium_hyalinus_JEL0917.spades_shovill.fasta
+   CONTIG COUNT  =  1114
+   TOTAL LENGTH  =  28600648
+            MIN  =  1013
+            MAX  =  399454
+         MEDIAN  =  10831
+           MEAN  =  25673.83
+            L50  =  144
+            N50  =  58729
+            L90  =  502
+            N90  =  13726

@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Geranomyces_variabilis_JEL0379.dipspades_consensus.fasta
+   CONTIG COUNT  =  613
+   TOTAL LENGTH  =  23182223
+            MIN  =  78
+            MAX  =  543762
+         MEDIAN  =  12020
+           MEAN  =  37817.66
+            L50  =  67
+            N50  =  104042
+            L90  =  227
+            N90  =  29050

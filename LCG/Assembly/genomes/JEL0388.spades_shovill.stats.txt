@@ -1,0 +1,11 @@
+Assembly statistics for: Phlyctochytrium_planicorne_JEL0388.spades_shovill.fasta
+   CONTIG COUNT  =  1083
+   TOTAL LENGTH  =  34060685
+            MIN  =  1001
+            MAX  =  283446
+         MEDIAN  =  14652
+           MEAN  =  31450.31
+            L50  =  138
+            N50  =  77011
+            L90  =  485
+            N90  =  19625

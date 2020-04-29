@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Quaeritorhiza_haematococci_JEL0916.spades_sorted.fasta
+   CONTIG COUNT  =  7824
+   TOTAL LENGTH  =  48216321
+            MIN  =  948
+            MAX  =  106668
+         MEDIAN  =  3172
+           MEAN  =  6162.62
+            L50  =  1101
+            N50  =  11770
+            L90  =  4710
+            N90  =  2386

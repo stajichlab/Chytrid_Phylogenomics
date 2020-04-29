@@ -1,0 +1,11 @@
+Assembly statistics for: Borealophlyctis_nickersoniae_WJD170.dipspades.fasta
+   CONTIG COUNT  =  5692
+   TOTAL LENGTH  =  38019887
+            MIN  =  78
+            MAX  =  109222
+         MEDIAN  =  2816
+           MEAN  =  6679.53
+            L50  =  660
+            N50  =  16237
+            L90  =  2595
+            N90  =  3434

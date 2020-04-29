@@ -1,0 +1,11 @@
+Assembly statistics for: Boothiomyces_macroporosum_PLAUS21.spades_shovill.fasta
+   CONTIG COUNT  =  1683
+   TOTAL LENGTH  =  16284491
+            MIN  =  1000
+            MAX  =  291789
+         MEDIAN  =  4316
+           MEAN  =  9675.87
+            L50  =  197
+            N50  =  20078
+            L90  =  894
+            N90  =  3922

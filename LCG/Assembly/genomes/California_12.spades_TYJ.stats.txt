@@ -1,0 +1,11 @@
+Assembly statistics for: Allomyces_javanicus_California12.spades_TYJ.fasta
+   CONTIG COUNT  =  61271
+   TOTAL LENGTH  =  53451355
+            MIN  =  76
+            MAX  =  536037
+         MEDIAN  =  203
+           MEAN  =  872.38
+            L50  =  1282
+            N50  =  9118
+            L90  =  25949
+            N90  =  231

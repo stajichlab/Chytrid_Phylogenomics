@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Boothiomyces_macroporosum_PLAUS21.spades.fasta
+   CONTIG COUNT  =  55694
+   TOTAL LENGTH  =  24661797
+            MIN  =  76
+            MAX  =  314565
+         MEDIAN  =  156
+           MEAN  =  442.81
+            L50  =  4605
+            N50  =  918
+            L90  =  37963
+            N90  =  155

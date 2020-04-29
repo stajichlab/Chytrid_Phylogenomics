@@ -1,0 +1,11 @@
+Assembly statistics for: Rhizophlyctis_rosea_JEL0318.spades_shovill.fasta
+   CONTIG COUNT  =  3868
+   TOTAL LENGTH  =  38842503
+            MIN  =  1001
+            MAX  =  145080
+         MEDIAN  =  5893
+           MEAN  =  10042.01
+            L50  =  603
+            N50  =  18043
+            L90  =  2234
+            N90  =  4497

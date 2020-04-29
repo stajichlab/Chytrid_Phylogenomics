@@ -1,0 +1,11 @@
+Assembly statistics for: Rhizophydium_sp._JEL0801.spades_shovill.fasta
+   CONTIG COUNT  =  5430
+   TOTAL LENGTH  =  23295513
+            MIN  =  1000
+            MAX  =  56209
+         MEDIAN  =  2621
+           MEAN  =  4290.15
+            L50  =  968
+            N50  =  6599
+            L90  =  3666
+            N90  =  1780

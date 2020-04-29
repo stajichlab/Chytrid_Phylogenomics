@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Allomyces_javanicus_California_12.dipspades.fasta
+   CONTIG COUNT  =  1223
+   TOTAL LENGTH  =  30159662
+            MIN  =  80
+            MAX  =  605211
+         MEDIAN  =  2466
+           MEAN  =  24660.39
+            L50  =  86
+            N50  =  104890
+            L90  =  312
+            N90  =  24472

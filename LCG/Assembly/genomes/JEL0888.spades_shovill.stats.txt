@@ -1,0 +1,11 @@
+Assembly statistics for: Cladochytrium_tenue_C_tenue.spades_shovill.fasta
+   CONTIG COUNT  =  3822
+   TOTAL LENGTH  =  23462068
+            MIN  =  1002
+            MAX  =  101264
+         MEDIAN  =  3477
+           MEAN  =  6138.69
+            L50  =  611
+            N50  =  10676
+            L90  =  2398
+            N90  =  2511

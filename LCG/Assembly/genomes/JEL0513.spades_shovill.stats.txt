@@ -1,0 +1,11 @@
+Assembly statistics for: Physocladia_obscura_JEL0513.spades_shovill.fasta
+   CONTIG COUNT  =  6995
+   TOTAL LENGTH  =  45867245
+            MIN  =  1001
+            MAX  =  61388
+         MEDIAN  =  4194
+           MEAN  =  6557.15
+            L50  =  1292
+            N50  =  10744
+            L90  =  4478
+            N90  =  2880

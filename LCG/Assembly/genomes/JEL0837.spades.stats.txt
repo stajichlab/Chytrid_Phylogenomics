@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Blyttiomyces_sp._JEL0837.spades.fasta
+   CONTIG COUNT  =  71076
+   TOTAL LENGTH  =  57025521
+            MIN  =  73
+            MAX  =  302606
+         MEDIAN  =  139
+           MEAN  =  802.32
+            L50  =  1524
+            N50  =  9726
+            L90  =  20693
+            N90  =  173

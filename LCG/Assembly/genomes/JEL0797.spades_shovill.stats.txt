@@ -1,0 +1,11 @@
+Assembly statistics for: Podochytrium_sp._JEL0797.spades_shovill.fasta
+   CONTIG COUNT  =  4257
+   TOTAL LENGTH  =  37234571
+            MIN  =  1000
+            MAX  =  134640
+         MEDIAN  =  5067
+           MEAN  =  8746.67
+            L50  =  672
+            N50  =  15110
+            L90  =  2552
+            N90  =  3798

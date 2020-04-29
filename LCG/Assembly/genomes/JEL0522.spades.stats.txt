@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Lobulomyces_angularis_JEL0522.spades.fasta
+   CONTIG COUNT  =  12076
+   TOTAL LENGTH  =  26647715
+            MIN  =  78
+            MAX  =  248600
+         MEDIAN  =  142
+           MEAN  =  2206.67
+            L50  =  182
+            N50  =  42261
+            L90  =  816
+            N90  =  4489

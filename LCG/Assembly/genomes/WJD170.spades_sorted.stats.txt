@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Borealophlyctis_nickersoniae_WJD170.spades_sorted.fasta
+   CONTIG COUNT  =  4487
+   TOTAL LENGTH  =  38361113
+            MIN  =  746
+            MAX  =  109222
+         MEDIAN  =  4607
+           MEAN  =  8549.39
+            L50  =  668
+            N50  =  16159
+            L90  =  2592
+            N90  =  3638

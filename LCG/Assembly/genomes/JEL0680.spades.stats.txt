@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Kappamyces_sp._JEL0680.spades.fasta
+   CONTIG COUNT  =  32811
+   TOTAL LENGTH  =  19392475
+            MIN  =  69
+            MAX  =  119664
+         MEDIAN  =  155
+           MEAN  =  591.04
+            L50  =  1069
+            N50  =  3199
+            L90  =  18393
+            N90  =  155

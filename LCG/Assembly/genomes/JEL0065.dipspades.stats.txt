@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Siphonaria_sp._JEL0065.dipspades.fasta
+   CONTIG COUNT  =  3173
+   TOTAL LENGTH  =  37689356
+            MIN  =  505
+            MAX  =  119671
+         MEDIAN  =  6765
+           MEAN  =  11878.15
+            L50  =  523
+            N50  =  21877
+            L90  =  1854
+            N90  =  5270

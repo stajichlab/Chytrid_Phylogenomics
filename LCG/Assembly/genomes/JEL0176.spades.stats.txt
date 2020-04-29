@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Chytriomyces_hyalinus_JEL0176.spades.fasta
+   CONTIG COUNT  =  44347
+   TOTAL LENGTH  =  41849653
+            MIN  =  77
+            MAX  =  278913
+         MEDIAN  =  137
+           MEAN  =  943.69
+            L50  =  334
+            N50  =  24105
+            L90  =  10366
+            N90  =  249

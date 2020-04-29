@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Entophlyctis_luteolus_JEL0120.spades.fasta
+   CONTIG COUNT  =  1234
+   TOTAL LENGTH  =  715575
+            MIN  =  74
+            MAX  =  107124
+         MEDIAN  =  134
+           MEAN  =  579.88
+            L50  =  6
+            N50  =  38931
+            L90  =  541
+            N90  =  143

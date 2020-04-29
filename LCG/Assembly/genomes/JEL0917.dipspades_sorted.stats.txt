@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Rhizoclosmatium_hyalinus_JEL0917.dipspades_sorted.fasta
+   CONTIG COUNT  =  1981
+   TOTAL LENGTH  =  29212124
+            MIN  =  434
+            MAX  =  228409
+         MEDIAN  =  6114
+           MEAN  =  14746.15
+            L50  =  249
+            N50  =  33877
+            L90  =  919
+            N90  =  7374

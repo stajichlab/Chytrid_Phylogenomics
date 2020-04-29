@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Allomyces_arbuscula_Burma_1F.spades_sorted.fasta
+   CONTIG COUNT  =  362
+   TOTAL LENGTH  =  26482826
+            MIN  =  1017
+            MAX  =  1040497
+         MEDIAN  =  14956
+           MEAN  =  73156.98
+            L50  =  26
+            N50  =  317448
+            L90  =  110
+            N90  =  47545

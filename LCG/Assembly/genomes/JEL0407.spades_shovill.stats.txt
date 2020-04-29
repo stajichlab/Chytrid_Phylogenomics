@@ -1,0 +1,11 @@
+Assembly statistics for: Nowakowskiella_sp._JEL0407.spades_shovill.fasta
+   CONTIG COUNT  =  6663
+   TOTAL LENGTH  =  27867701
+            MIN  =  1000
+            MAX  =  141611
+         MEDIAN  =  2047
+           MEAN  =  4182.46
+            L50  =  656
+            N50  =  6698
+            L90  =  4445
+            N90  =  1561

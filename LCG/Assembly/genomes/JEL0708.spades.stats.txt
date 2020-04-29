@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Gaertneriomyces_sp._JEL0708.spades.fasta
+   CONTIG COUNT  =  2516
+   TOTAL LENGTH  =  21102010
+            MIN  =  78
+            MAX  =  1869936
+         MEDIAN  =  240
+           MEAN  =  8387.13
+            L50  =  12
+            N50  =  558018
+            L90  =  43
+            N90  =  120096

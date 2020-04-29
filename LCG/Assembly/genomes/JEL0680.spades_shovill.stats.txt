@@ -1,0 +1,11 @@
+Assembly statistics for: Kappamyces_sp._JEL0680.spades_shovill.fasta
+   CONTIG COUNT  =  731
+   TOTAL LENGTH  =  14965479
+            MIN  =  1000
+            MAX  =  254998
+         MEDIAN  =  9167
+           MEAN  =  20472.61
+            L50  =  92
+            N50  =  45516
+            L90  =  343
+            N90  =  10199

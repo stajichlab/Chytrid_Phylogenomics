@@ -1,0 +1,11 @@
+Assembly statistics for: Kappamyces_sp._JEL0680.dipspades.fasta
+   CONTIG COUNT  =  711
+   TOTAL LENGTH  =  9931952
+            MIN  =  78
+            MAX  =  189478
+         MEDIAN  =  1759
+           MEAN  =  13968.99
+            L50  =  50
+            N50  =  65034
+            L90  =  172
+            N90  =  11340

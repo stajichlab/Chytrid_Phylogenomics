@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Entophlyctis_luteolus_JEL0120.dipspades_consensus.fasta
+   CONTIG COUNT  =  2939
+   TOTAL LENGTH  =  26148257
+            MIN  =  79
+            MAX  =  130324
+         MEDIAN  =  5235
+           MEAN  =  8896.99
+            L50  =  441
+            N50  =  16855
+            L90  =  1527
+            N90  =  4896

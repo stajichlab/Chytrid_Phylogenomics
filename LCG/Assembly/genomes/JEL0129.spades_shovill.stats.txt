@@ -1,0 +1,11 @@
+Assembly statistics for: Entophlyctis_luteolus_JEL0129.spades_shovill.fasta
+   CONTIG COUNT  =  1824
+   TOTAL LENGTH  =  29198077
+            MIN  =  1000
+            MAX  =  278745
+         MEDIAN  =  3535
+           MEAN  =  16007.72
+            L50  =  158
+            N50  =  50733
+            L90  =  666
+            N90  =  7834

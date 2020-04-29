@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Thoreauomyces_humboldtii_JEL0095.spades.fasta
+   CONTIG COUNT  =  11753
+   TOTAL LENGTH  =  28120348
+            MIN  =  77
+            MAX  =  136349
+         MEDIAN  =  155
+           MEAN  =  2392.61
+            L50  =  365
+            N50  =  21390
+            L90  =  1572
+            N90  =  2999

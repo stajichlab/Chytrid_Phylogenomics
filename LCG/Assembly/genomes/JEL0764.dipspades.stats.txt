@@ -1,0 +1,11 @@
+Assembly statistics for: genomes/Rhizophlyctis_rosea_JEL0764.dipspades_consensus.fasta
+   CONTIG COUNT  =  2608
+   TOTAL LENGTH  =  47084344
+            MIN  =  78
+            MAX  =  262838
+         MEDIAN  =  5691
+           MEAN  =  18053.81
+            L50  =  257
+            N50  =  53266
+            L90  =  1013
+            N90  =  10270

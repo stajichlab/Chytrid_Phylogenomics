@@ -1,0 +1,11 @@
+Assembly statistics for: Borealophlyctis_nickersoniae_WJD170.spades_shovill.fasta
+   CONTIG COUNT  =  4968
+   TOTAL LENGTH  =  39661826
+            MIN  =  1001
+            MAX  =  109444
+         MEDIAN  =  4299
+           MEAN  =  7983.46
+            L50  =  739
+            N50  =  15176
+            L90  =  2911
+            N90  =  3377
