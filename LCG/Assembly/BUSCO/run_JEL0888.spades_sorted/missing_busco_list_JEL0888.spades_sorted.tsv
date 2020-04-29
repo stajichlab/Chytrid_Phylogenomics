@@ -1,0 +1,35 @@
+# BUSCO version is: 3.0.2 
+# The lineage dataset is: fungi_odb9 (Creation date: 2016-02-13, number of species: 85, number of BUSCOs: 290)
+# To reproduce this run: python /opt/linux/centos/7.x/x86_64/pkgs/busco/3.0.2/scripts/run_BUSCO.py -i /bigdata/stajichlab/shared/projects/Chytrid/Chytrid_Phylogenomics/LCG/Assembly/genomes/Cladochytrium_tenue_C_tenue.spades_sorted.fasta -o Cladochytrium_tenue_C_tenue.spades_sorted -l /bigdata/operations/pkgadmin/srv/projects/db/BUSCO/v9/fungi_odb9/ -m genome -c 4 -t /scratch/978385_43/ -sp batrachochytrium_dendrobatidis_G2
+#
+EOG092C0B3U
+EOG092C0Y9M
+EOG092C1ILX
+EOG092C2DPS
+EOG092C2M8E
+EOG092C2Q7B
+EOG092C2SMS
+EOG092C35RK
+EOG092C3F88
+EOG092C3GCF
+EOG092C3P8T
+EOG092C3TX5
+EOG092C42ZN
+EOG092C44LK
+EOG092C47TW
+EOG092C48JI
+EOG092C4F6L
+EOG092C4IM8
+EOG092C4JF2
+EOG092C4LX2
+EOG092C4Q5B
+EOG092C4RWB
+EOG092C4UH1
+EOG092C4ZUJ
+EOG092C50DB
+EOG092C52LO
+EOG092C54XZ
+EOG092C55QK
+EOG092C57KP
+EOG092C59RA
+EOG092C5BSS

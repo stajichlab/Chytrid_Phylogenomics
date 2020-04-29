@@ -1,0 +1,36 @@
+# BUSCO version is: 3.0.2 
+# The lineage dataset is: fungi_odb9 (Creation date: 2016-02-13, number of species: 85, number of BUSCOs: 290)
+# To reproduce this run: python /opt/linux/centos/7.x/x86_64/pkgs/busco/3.0.2/scripts/run_BUSCO.py -i /bigdata/stajichlab/shared/projects/Chytrid/Chytrid_Phylogenomics/LCG/Assembly/genomes/Blyttiomyces_sp._JEL0837.spades_sorted.fasta -o Blyttiomyces_sp._JEL0837.spades_sorted -l /bigdata/operations/pkgadmin/srv/projects/db/BUSCO/v9/fungi_odb9/ -m genome -c 4 -t /scratch/979225_27/ -sp batrachochytrium_dendrobatidis_G2
+#
+EOG092C0C7Z
+EOG092C12WO
+EOG092C2GWG
+EOG092C2M8E
+EOG092C2SKV
+EOG092C2VGW
+EOG092C2X60
+EOG092C36CW
+EOG092C3L9G
+EOG092C3RZP
+EOG092C3SC6
+EOG092C42ZN
+EOG092C44YB
+EOG092C47TW
+EOG092C4AQW
+EOG092C4IV8
+EOG092C4IXB
+EOG092C4LX2
+EOG092C4PIQ
+EOG092C4UKX
+EOG092C52LO
+EOG092C52QV
+EOG092C54AQ
+EOG092C54X6
+EOG092C580G
+EOG092C59NU
+EOG092C5BSS
+EOG092C5JQL
+EOG092C5N82
+EOG092C5NLC
+EOG092C5OAL
+EOG092C5OPO
