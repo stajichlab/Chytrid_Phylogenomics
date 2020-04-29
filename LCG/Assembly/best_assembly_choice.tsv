@@ -1,12 +1,12 @@
 ID	Genus	species	Phylum	best_method
 ARG085	Chytriomyces	hyalinus	Chytridiomycota	dipspades
 ARG121	Chytriomyces	hyalinus	Chytridiomycota	dipspades
-C_tenue	Cladochytrium	tenue	Chytridiomycota	spades
+CCIBt4013	Cladochytrium	tenue	Chytridiomycota	spades
 JEL0065	Siphonaria	sp.	Chytridiomycota	dipspades
 JEL0078	Nowakowskiella	sp.	Chytridiomycota	spades
 JEL0095	Thoreauomyces	humboldtii	Chytridiomycota	spades
-JEL0112	Entophlyctis	sp.	Chytridiomycota	dipspades
-JEL0117	Chytriomyces	hyalinus	Chytridiomycota	dipspades
+JEL0112	Entophlyctis	sp.	Chytridiomycota	spades
+JEL0117	Rhizoclosmatium	sp.	Chytridiomycota	dipspades
 JEL0120	Entophlyctis	luteolus	Chytridiomycota	dipspades
 JEL0129	Entophlyctis	luteolus	Chytridiomycota	spades
 JEL0176	Chytriomyces	hyalinus	Chytridiomycota	dipspades
@@ -16,7 +16,7 @@ JEL0379	Geranomyces	variabilis	Chytridiomycota	spades
 JEL0388	Phlyctochytrium	planicorne	Chytridiomycota	dipspades
 JEL0389	Geranomyces	variabilis	Chytridiomycota	spades
 JEL0407	Nowakowskiella	sp.	Chytridiomycota	dipspades
-JEL0476	Lobulomyces	sp.	Chytridiomycota	spades
+JEL0476	Clydaea	vesicula	Chytridiomycota	spades
 JEL0513	Physocladia	obscura	Chytridiomycota	spades
 JEL0522	Lobulomyces	angularis	Chytridiomycota	spades
 JEL0563	Geranomyces	michiganensis	Chytridiomycota	spades
@@ -25,22 +25,23 @@ JEL0567	Geranomyces	variabilis	Chytridiomycota	spades
 JEL0680	Kappamyces	sp.	Chytridiomycota	spades
 JEL0695	Paranamyces	uniporus	Chytridiomycota	spades
 JEL0708	Gaertneriomyces	sp.	Chytridiomycota	spades
-JEL0728	Rhizophydium	sp.	Chytridiomycota	dipspades
+JEL0728	Terramyces	sp.	Chytridiomycota	dipspades
 JEL0729	Irineochytrium	annulatum	Chytridiomycota	spades
 JEL0754	Phlyctochytrium	bullatum	Chytridiomycota	spades
 JEL0764	Rhizophlyctis	rosea	Chytridiomycota	spades
-JEL0774	Nowakowskiella	sp.	Chytridiomycota	spades
+JEL0774	Gonapodya	sp.	Chytridiomycota	spades
 JEL0797	Podochytrium	sp.	Chytridiomycota	dipspades
-JEL0801	Rhizophydium	sp.	Chytridiomycota	dipspades
-JEL0829	Rhizophydium	sp.	Chytridiomycota	dipspades
+JEL0801	Unknown Rhizophydiales	sp.	Chytridiomycota	dipspades
+JEL0829	Kappamyces	sp.	Chytridiomycota	dipspades
 JEL0837	Blyttiomyces	sp.	Chytridiomycota	spades
-JEL0838	Rhizophydium	sp.	Chytridiomycota	dipspades
-JEL0842	Rhizophydium	sp.	Chytridiomycota	spades
-JEL0847	Paraphysoderma	sedebokerense	Blastocladiomycota	dipspades
-JEL0866	Rhizophydium	sp.	Chytridiomycota	dipspades
+JEL0838	Boothiomyces	sp.	Chytridiomycota	dipspades
+JEL0842	Unknown Chytridiales	sp.	Chytridiomycota	spades
+JEL0866	Boothiomyces	sp.	Chytridiomycota	dipspades
 JEL0888	Unknown	unknown	Chytridiomycota	spades
 JEL0916	Quaeritorhiza	haematococci	Chytridiomycota	spades
-JEL0917	Rhizoclosmatium	hyalinus	Chytridiomycota	spades
+JEL0917	Rhizoclosmatium	hyalinum	Chytridiomycota	spades
 KLL_TL_06062013	Dinochytrium	kinnereticum	Chytridiomycota	spades
 PLAUS21	Boothiomyces	macroporosum	Chytridiomycota	dipspades
 WJD170	Borealophlyctis	nickersoniae	Chytridiomycota	spades
+Burma_1F	Allomyces arbuscula	Blastocladiomycota	spades
+California_12	Allomyces javanicus	Blastocladiomycota	dipspades
