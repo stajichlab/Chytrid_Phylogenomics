@@ -6,7 +6,16 @@ use warnings;
 
 my %stats;
 
+my $sampnames = 'ploidy_target_assembly.tsv';
 
+my %strain2name;
+open(my $fh => $sampnames) || die $!;
+while(<$fh>) {
+  next if /^ID/;
+  my ($strain,$genus,$species) = split;
+  $genus =~ s/\s+/_/g;
+  $strain2name{$strain} = sprintf("%s_%s_%s",$genus,$species,$strain)
+}
 my $read_map_stat = 'mapping_report';
 my $dir = shift || 'genomes';
 my %cols;
@@ -17,16 +26,16 @@ opendir(DIR,$dir) || die $!;
 my $first = 1;
 foreach my $file ( readdir(DIR) ) {
     next unless ( $file =~ /(\S+)(\.fasta)?\.stats.txt$/);
-    my $stem = $1; 
+    my $stem = $1;
 
-    warn("$file ($dir)\n");
+    #warn("$file ($dir)\n");
     open(my $fh => "$dir/$file") || die "cannot open $dir/$file: $!";
     while(<$fh>) {
 	next if /^\s+$/;
 	s/^\s+//;
 	chomp;
 	if ( /\s*(.+)\s+=\s+(\d+(\.\d+)?)/ ) {
-	    my ($name,$val) = ($1,$2);	    
+	    my ($name,$val) = ($1,$2);
 	    $name =~ s/\s*$//;
 	    $stats{$stem}->{$name} = $val;
 #	    warn("'$name'"," '", $val,"'\n");
@@ -37,7 +46,7 @@ foreach my $file ( readdir(DIR) ) {
 	    }
 	}
     }
-    if ( $first ) { 
+    if ( $first ) {
 	push @header, qw(BUSCO_Complete BUSCO_Single BUSCO_Duplicate
                  BUSCO_Fragmented BUSCO_Missing BUSCO_NumGenes
                  );
@@ -48,9 +57,9 @@ foreach my $file ( readdir(DIR) ) {
 					 sprintf("short_summary_%s.txt",$stem));
 
     if ( $stem =~ /\.dipspades/ ) {
-	$busco_file = File::Spec->catfile("BUSCO",sprintf("run_%s_consensus",$stem),
-					     sprintf("short_summary_%s_consensus.txt",$stem));
-    } 
+	$busco_file = File::Spec->catfile("BUSCO",sprintf("run_%s",$stem),
+					     sprintf("short_summary_%s.txt",$stem));
+    }
 #elsif ( $is_sorted ) {
 #	$busco_file = File::Spec->catfile("BUSCO",sprintf("run_%s.sorted",$stem)#,
 #					  sprintf("short_summary_%s.txt",$stem));
@@ -60,7 +69,7 @@ foreach my $file ( readdir(DIR) ) {
     if ( -f $busco_file ) {
 
 	open(my $fh => $busco_file) || die $!;
-	while(<$fh>) {	 
+	while(<$fh>) {
 	    if (/^\s+C:(\d+\.\d+)\%\[S:(\d+\.\d+)%,D:(\d+\.\d+)%\],F:(\d+\.\d+)%,M:(\d+\.\d+)%,n:(\d+)/ ) {
 		$stats{$stem}->{"BUSCO_Complete"} = $1;
 		$stats{$stem}->{"BUSCO_Single"} = $2;
@@ -68,7 +77,7 @@ foreach my $file ( readdir(DIR) ) {
 		$stats{$stem}->{"BUSCO_Fragmented"} = $4;
 		$stats{$stem}->{"BUSCO_Missing"} = $5;
 		$stats{$stem}->{"BUSCO_NumGenes"} = $6;
-	    } 
+	    }
 	}
 
     } else {
@@ -76,9 +85,9 @@ foreach my $file ( readdir(DIR) ) {
     }
 
     my $fstem = $stem;
-    
-    my $is_sorted = ( $fstem =~ s/\.sorted_shovill/.shovill/ || $fstem =~ s/\.sorted// ) ? 1 : 0;
-    warn("$fstem looking for file $fstem.bbmap_summary.txt\n");
+
+    #my $is_sorted = ( $fstem =~ s/\.sorted_shovill/.shovill/ || $fstem =~ s/\.sorted// ) ? 1 : 0;
+    #warn("$fstem looking for file $fstem.bbmap_summary.txt\n");
     my $sumstatfile = File::Spec->catfile($read_map_stat,
 				      sprintf("%s.bbmap_summary.txt",$fstem));
     if ( -f $sumstatfile ) {
@@ -95,23 +104,29 @@ foreach my $file ( readdir(DIR) ) {
 	    }  elsif( /^Reads(\s+Used)?:\s+(\S+)/) {
 		$stats{$stem}->{'Reads'} = $2;
 	    }
-	    
+
 	}
 	$stats{$stem}->{'Pct_reads_mapped'} = sprintf("%.1f",100*$stats{$stem}->{'Mapped_reads'}/$stats{$stem}->{'Reads'});
-	$stats{$stem}->{'Average_Coverage'} =
-	    sprintf("%.1f",$base_count / $stats{$stem}->{'TOTAL LENGTH'});
+	if ($stats{$stem}->{'TOTAL LENGTH'} ) {
+	    $stats{$stem}->{'Average_Coverage'} =
+		sprintf("%.1f",$base_count / $stats{$stem}->{'TOTAL LENGTH'});
+	}
 	if( $first )  {
 	    push @header, ('Reads',
-			   'Mapped_reads',			   
+			   'Mapped_reads',
 			   'Pct_reads_mapped',
 			   'Average_Coverage');
 	}
     }
-    
+
     $first = 0;
 }
 
-print join("\t", qw(SampleID), @header), "\n";
-foreach my $sp ( sort keys %stats ) {    
-    print join("\t", $sp, map { $stats{$sp}->{$_} || 'NA' } @header), "\n";
+print join("\t", qw(SampleID SPECIES), @header), "\n";
+foreach my $sp ( sort keys %stats ) {
+    my ($strain) = split(/\./,$sp);
+    if ( ! exists $strain2name{$strain}) {
+      warn("cannot find $strain");
+    }
+    print join("\t", $sp, $strain2name{$strain}, map { $stats{$sp}->{$_} || 'NA' } @header), "\n";
 }
