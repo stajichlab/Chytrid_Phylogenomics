@@ -1,0 +1,2 @@
+Dmel  Drosophila_melanogaster_6.aa.fasta	https://ftp.ncbi.nlm.nih.gov/genomes/refseq/invertebrate/Drosophila_melanogaster/latest_assembly_versions/GCF_000001215.4_Release_6_plus_ISO1_MT/GCF_000001215.4_Release_6_plus_ISO1_MT_translated_cds.faa.gz
+Mbre  Monosiga_brevicolis_v1.aa.fasta https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/002/865/GCF_000002865.3_V1.0/GCF_000002865.3_V1.0_translated_cds.faa.gz
