@@ -7,6 +7,7 @@ module unload python
 module load miniconda3
 NUM=$(wc -l ../expected_prefixes.lst | awk '{print $1}')
 source ../config.txt
+HMM=JGI_1086
 ALN=../$PREFIX.${NUM}_taxa.${HMM}.aa.fasaln
 TREE1=$PREFIX.${NUM}_taxa.${HMM}.ft_lg.tre
 TREE2=$PREFIX.${NUM}_taxa.${HMM}.ft_lg_long.tre
