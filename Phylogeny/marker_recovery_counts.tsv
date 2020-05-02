@@ -34,8 +34,10 @@ Chytriomyces_hyalinus_JEL632_v1.0	384	207	502
 Chytriomyces_sp._MP_71_v1.0	392	203	488
 Cladochytrium_polystomum_WB228_v1.0	384	213	497
 Cladochytrium_replicatum_JEL714_v1.0	392	215	513
+Cladochytrium_tenue_CCIBt4013.v0.LCG	287	145	350
 Clydaea_vesicula_JEL0476.LCG	357	193	449
 Coelomomyces_lativittatus_CIRM-AVA-1-Amber.LCG	297	164	340
+Coelomomyces_lativittatus_CIRM-AVA-1-Meiospore.LCG	293	172	343
 Coelomomyces_lativittatus_CIRM-AVA-1-Orange.LCG	245	129	284
 Coemansia_reversa_NRRL_1564	397	207	505
 Conidiobolus_coronatus_NRRL_28638	368	196	470
@@ -83,6 +85,7 @@ Neurospora_crassa_OR74A	430	237	593
 Nowakowskiella_sp._JEL0078.LCG	323	168	390
 Nowakowskiella_sp._JEL0407.LCG	319	170	400
 Obelidium_mucronatum_JEL802_v1.0	385	200	492
+Olpidium_sp._PSC023	354	192	451
 Paramicrosporidium_saccamoebae_KSL3	278	172	320
 Paraphelidium_tribonemae_X-108.Trinity	386	210	472
 Paraphysoderma_sedebokerense_JEL821_v1.0	393	217	500
@@ -110,6 +113,9 @@ Rhizophlyctis_rosea_JEL0764.LCG	368	209	484
 Rhizopus_delemar_RA_99-880	375	211	514
 Rhizopus_microsporus_var._microsporus_ATCC_52814	411	225	557
 Rozella_allomycis_CSF55_v1.0	319	193	404
+Rozella_multimorpha	289	167	340
+Rozella_rhizoclasmatii	157	100	222
+Rozella_sp._PSC023	323	189	391
 Saccharomyces_cerevisiae_S288C	402	230	547
 Saccharomycopsis_capsularis_NRRL_Y-17638	409	223	524
 Saksenaea_vasiformis_B4078.G233.v1	409	216	553
@@ -127,7 +133,7 @@ Triparticalcar_arcticum_BR59_v1.0	402	219	532
 Umbelopsis_ramanniana_AG_#.Umbra1.v1	405	222	549
 Unknown_Chytridiales_sp._JEL0842.LCG	359	208	477
 Unknown_Rhizophydiales_sp._JEL0801.LCG	234	129	282
-Unknown_unknown_JEL0888.LCG	287	145	350
+Unknown_unknown_JEL0888.LCG	373	195	489
 Ustilago_maydis_521	421	227	547
 Yarrow_lipolytica_CLIB122	416	229	540
 Zoophthora_radicans_ATCC_208865	392	213	495
