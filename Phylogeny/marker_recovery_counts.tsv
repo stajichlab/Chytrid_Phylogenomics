@@ -18,7 +18,7 @@ Blyttiomyces_sp._JEL0837.LCG	345	193	442
 Boothiomyces_macroporosum_PLAUS21.LCG	322	184	421
 Boothiomyces_sp._JEL0838.LCG	280	155	363
 Boothiomyces_sp._JEL0866.LCG	297	165	383
-Borealophlyctis_nickersoniae_WJD170.LCG	366	214	499
+Borealophlyctis_nickersoniae_WJD170.LCG	366	215	499
 Calcarisporiella_thermophila_CBS279.70.v1	417	229	575
 Candida_arabinofermentans_NRRL_YB-2248	413	219	530
 Capsaspora_owczarzaki_ATCC_30864.v2	352	198	441
@@ -34,8 +34,8 @@ Chytriomyces_hyalinus_JEL632_v1.0	384	207	502
 Chytriomyces_sp._MP_71_v1.0	392	203	488
 Cladochytrium_polystomum_WB228_v1.0	384	213	497
 Cladochytrium_replicatum_JEL714_v1.0	392	215	513
-Cladochytrium_tenue_CCIBt4013.v0.LCG	287	145	350
-Clydaea_vesicula_JEL0476.LCG	357	193	449
+Cladochytrium_tenue_CCIBt4013.LCG	296	147	352
+Clydaea_vesicula_JEL0476.LCG	358	194	450
 Coelomomyces_lativittatus_CIRM-AVA-1-Amber.LCG	297	164	340
 Coelomomyces_lativittatus_CIRM-AVA-1-Meiospore.LCG	293	172	343
 Coelomomyces_lativittatus_CIRM-AVA-1-Orange.LCG	245	129	284
@@ -82,8 +82,8 @@ Mortierella_elongata_AG-77	418	223	569
 Mucor_circinelloides_f._circinelloides_1006PhL	417	228	571
 Neocallimastix_californiae_G1_v1.0	351	211	487
 Neurospora_crassa_OR74A	430	237	593
-Nowakowskiella_sp._JEL0078.LCG	323	168	390
-Nowakowskiella_sp._JEL0407.LCG	319	170	400
+Nowakowskiella_sp._JEL0078.LCG	322	169	390
+Nowakowskiella_sp._JEL0407.LCG	319	170	399
 Obelidium_mucronatum_JEL802_v1.0	385	200	492
 Olpidium_sp._PSC023	354	192	451
 Paramicrosporidium_saccamoebae_KSL3	278	172	320
@@ -93,7 +93,7 @@ Pecoramyces_ruminatium_C1A	235	150	327
 Phlyctochytrium_bullatum_JEL0754.LCG	277	162	353
 Phlyctochytrium_planicorne_JEL0388.LCG	336	194	451
 Phycomyces_blakesleeanus_NRRL_1555	411	218	552
-Physocladia_obscura_JEL0513.LCG	356	194	462
+Physocladia_obscura_JEL0513.LCG	357	194	462
 Piptocephalis_cylindrospora_RSA_2659	232	123	291
 Piromyces_finnis_v3.0	352	213	489
 Piromyces_sp._E2_v1.0	263	164	352
@@ -102,7 +102,7 @@ Polychytrium_aggregatum_JEL109_v1.0	408	218	525
 Powellomyces_hirtus_BR81_v1.0	405	225	531
 Powellomyces_hirtus_CBS_809.83	396	220	524
 Puccinia_graminis_f._sp._tritici_CRL_75-36-700-3	405	216	518
-Quaeritorhiza_haematococci_JEL0916.LCG	341	194	458
+Quaeritorhiza_haematococci_JEL0916.LCG	341	194	459
 Ramicandelaber_brevisporus_CBS_109374.Rambr1.v1	386	191	461
 Rhizoclosmatium_globosum_JEL800_v1.0	385	199	477
 Rhizoclosmatium_hyalinum_JEL0917.LCG	250	139	322
@@ -128,12 +128,12 @@ Syncephalis_fuscata_S228.Synfus1.v1	386	210	501
 Synchytrium_endobioticum_MB42	372	203	484
 Synchytrium_microbalum_JEL517	388	213	511
 Terramyces_sp._JEL0728.LCG	336	186	430
-Thoreauomyces_humboldtii_JEL0095.LCG	381	208	500
+Thoreauomyces_humboldtii_JEL0095.LCG	381	206	502
 Triparticalcar_arcticum_BR59_v1.0	402	219	532
 Umbelopsis_ramanniana_AG_#.Umbra1.v1	405	222	549
 Unknown_Chytridiales_sp._JEL0842.LCG	359	208	477
 Unknown_Rhizophydiales_sp._JEL0801.LCG	234	129	282
-Unknown_unknown_JEL0888.LCG	373	195	489
+Unknown_unknown_JEL0888.LCG	373	195	488
 Ustilago_maydis_521	421	227	547
 Yarrow_lipolytica_CLIB122	416	229	540
 Zoophthora_radicans_ATCC_208865	392	213	495
