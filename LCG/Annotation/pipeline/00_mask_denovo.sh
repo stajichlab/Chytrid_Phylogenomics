@@ -31,7 +31,7 @@ fi
 IFS=,
 tail -n +2 $SAMPFILE | sed -n ${N}p | while read SPECIES STRAIN PHYLUM BIOPROJECT BIOSAMPLE SRA LOCUS
 do
-  name=$(echo -n "$SPECIES" | perl -p -e 's/\s+/_/g')"_$STRAIN"
+  name=$(echo -n ${SPECIES}_${STRAIN} | perl -p -e 's/\s+/_/g')
   if [ ! -f $INDIR/${name}.sorted.fasta ]; then
      echo "Cannot find $name in $INDIR - may not have been run yet"
      exit
@@ -49,6 +49,7 @@ do
      if [ -f repeat_library/${name}.repeatmodeler-library.fasta ]; then
     	  LIBRARY=$(realpath repeat_library/${name}.repeatmodeler-library.fasta)
      fi
+     echo "LIBRARY is $LIBRARY"
      mkdir $name.mask.$$
      pushd $name.mask.$$
      if [ ! -z $LIBRARY ]; then
