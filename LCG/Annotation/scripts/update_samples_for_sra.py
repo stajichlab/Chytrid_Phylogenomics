@@ -47,7 +47,7 @@ with open(insamples,"rU") as preprocess, open(outsamplesnew,"w",newline='\n') as
         bioproject = row[4]
         sra = row[5]
         locus = row[6]
-        outrow = [ species,strain,phylum,biosampleid,bioproject,sra,locus]
+        outrow = [ species,strain,phylum,biosampleid]
 
 
         # This is the part that does the magic for Entrez (NCBI) lookup
@@ -102,5 +102,5 @@ with open(insamples,"rU") as preprocess, open(outsamplesnew,"w",newline='\n') as
             lt = projroot.iter('LocusTagPrefix')
             for locus in lt:
                 LOCUSTAG = locus.text
-        outrow.extend([BIOSAMPLE,BIOPROJECT,";".join(SRA),LOCUSTAG])
+        outrow.extend([BIOPROJECT,";".join(SRA),LOCUSTAG])
         outcsv.writerow(outrow)
