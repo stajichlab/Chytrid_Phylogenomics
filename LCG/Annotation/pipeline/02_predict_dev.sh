@@ -50,7 +50,7 @@ if [ ! -s ~/.gm_key ]; then
   	ln -s $GMFOLDER/.gm_key ~/.gm_key
 fi
 IFS=,
-tail -n +2 $SAMPFILE | sed -n ${N}p | while read SPECIES STRAIN PHYLUM BIOSAMPLE BIOPROJECT SRA LOCUSTAG
+tail -n +2 $SAMPFILE | sed -n ${N}p | while read SPECIES STRAIN PHYLUM BIOSAMPLE BIOPROJECT SRA LOCUSTAG WGS
 do
     SEQCENTER=JGI
     if [[ ! -z $BIOPROJECT ]]; then
